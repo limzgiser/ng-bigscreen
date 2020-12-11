@@ -22,17 +22,15 @@ export const routes: Routes = [
        menuConfig:MenuConfigService
     },
     children: [
-      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-
+      { path: '', redirectTo: 'city-portrayal', pathMatch: 'full' },
       {
         path: 'dashboard',
         loadChildren: () => import('../business/dashboard/dashboard.module').then(m => m.DashboardModule),
+      },
+      {
+        path: 'city-portrayal',
+        loadChildren: () => import('../business/city-portrayal/city-portrayal.module').then(m => m.CityPortrayalModule),
       }
-      ,
-      // {
-      //   path: '**',
-      //   component: C404Component
-      // },
     ]
   }
 ];

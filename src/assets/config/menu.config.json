@@ -8,8 +8,8 @@
     },
     "data": [
       {
-        "name": "总体架构",
-        "id": "main-fm",
+        "name": "城市画像",
+        "id": "city-portrayal",
         "active": true,
         "extend": {
           "position": "left"
@@ -17,8 +17,8 @@
         "children": []
       },
       {
-        "name": "数据大脑",
-        "id": "mind-map",
+        "name": "人口画像",
+        "id": "people-portrayal",
         "active": false,
         "extend": {
           "position": "left"
@@ -26,8 +26,8 @@
         "children": []
       },
       {
-        "name": "园区画像",
-        "id": "park-portrayal",
+        "name": "企业画像",
+        "id": "ent-portrayal",
         "active": false,
         "extend": {
           "position": "left"
@@ -36,8 +36,8 @@
         "children": []
       },
       {
-        "name": "工业经济运行",
-        "id": "industrial-economic",
+        "name": "城市事件",
+        "id": "city-event",
         "active": false,
         "extend": {
           "position": "right"
@@ -45,8 +45,8 @@
         "children": []
       },
       {
-        "name": "园区高质量发展",
-        "id": "high-quality-ent",
+        "name": "规划建设",
+        "id": "city-plane",
         "active": false,
         "extend": {
           "position": "right"
@@ -54,8 +54,8 @@
         "children": []
       },
       {
-        "name": "企业高质量发展",
-        "id": "high-quality-indus",
+        "name": "场景分析",
+        "id": "scene-analyse",
         "active": false,
         "extend": {
           "position": "right"
