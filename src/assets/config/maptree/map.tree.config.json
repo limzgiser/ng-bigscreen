@@ -1,0 +1,123 @@
+{
+  "version": "v1.0.0",
+  "href": "",
+  "ticket": "3DA397BEA3A3B7D3AD4AEBA5C8F5FC4034E1B70A3CA2A8F710B40279A406C20E55AD0E16C178EBC6AA5F9715A16B1FD12E68780802C837E3890C4F410D36E1FA03097491561E787B39F52131B9955A76D5B0E95C0ED303D289ED3E3A02536C0F03A20376D7311798",
+  "status": {
+    "code": "200",
+    "desc": "操作成功"
+  },
+  "data": [
+    {
+      "key": "serviceSource",
+      "title": "公共服务资源",
+      "icon": "root.png",
+      "expanded": true,
+      "children": [
+        {
+          "key": "51bcc025-0767-44e5-b232-aad6ae0abf73",
+          "title": "汾湖高新区",
+          "query": false,
+          "isLeaf": true,
+          "checked": false
+        },
+        {
+          "key": "fcdbfbc6-6ecf-4d31-9fd3-7f53e155cce9",
+          "title": "村社区",
+          "query": true,
+          "layerId":"1",
+          "isLeaf": true,
+          "checked": false
+        },
+        {
+          "key": "57c95d34-cf23-4582-bb4b-0385363b68e7",
+          "title": "雨水管线",
+          "query": true,
+          "layerId":"2",
+          "isLeaf": true,
+          "checked": false
+        },
+        {
+          "key": "22ed76b2-4f0d-4c24-9fa6-e542f65808dc",
+          "title": "污水管线",
+          "query": true,
+          "layerId":"3",
+          "isLeaf": true,
+          "checked": false
+        },
+        {
+          "key": "78211514-0940-4790-abf3-fc10234700f0",
+          "title": "排水区块",
+          "query": false,
+          "isLeaf": true,
+          "checked": false
+        },
+        {
+          "key": "7e40d907-1023-4d2c-b7f9-2ab64c037a5d",
+          "title": "雨水",
+          "expanded": false,
+          "children": [
+            {
+              "key": "ae28b870-7419-4bbc-ab8e-6df1eb78d608",
+              "title": "雨水管点",
+              "query": false,
+              "isLeaf": true,
+              "checked": false
+            },
+            {
+              "key": "e1adecf8-1e3f-4133-9d77-b3b4d43d494e",
+              "title": "雨水管段",
+              "query": false,
+              "isLeaf": true,
+              "checked": false
+            }
+          ]
+        },
+        {
+          "key": "c7553117-051c-43bd-96e3-18e576a58640",
+          "title": "污水",
+          "expanded": false,
+          "children": [
+            {
+              "key": "fe152996-d5e8-4339-9ed3-de53e9f1a087",
+              "title": "污水管点",
+              "query": false,
+              "isLeaf": true,
+              "checked": false
+            },
+            {
+              "key": "b91c65a2-90b6-476b-9df2-34f9bd06bf97",
+              "title": "污水管段",
+              "query": false,
+              "isLeaf": true,
+              "checked": false
+            }
+          ]
+        },
+        {
+          "key": "bc52c03a-16f5-4fe7-adad-1a5038acb05e",
+          "title": "污水处理厂",
+          "query": false,
+          "isLeaf": true,
+          "checked": false
+        },
+        {
+          "key": "f089d5a1-5a55-4750-8ba1-3807f0956ed6",
+          "title": "泵站",
+          "query": false,
+          "isLeaf": true,
+          "checked": false
+        },
+        {
+          "key": "41920cb4-aae7-42e3-b093-4d09831c6966",
+          "title": "雨水口",
+          "query": false,
+          "isLeaf": true,
+          "checked": false
+        }
+
+      ]
+    }
+  ],
+  "template": null,
+  "userkey": "653b8a0d-7951-46d0-926c-5d45470832dd"
+}

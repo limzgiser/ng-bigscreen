@@ -1,0 +1,67 @@
+{
+    "version": "v1.0.0",
+    "href": null,
+    "ticket": "3DA397BEA3A3B7D3AD4AEBA5C8F5FC4034E1B70A3CA2A8F710B40279A406C20E55AD0E16C178EBC6AA5F9715A16B1FD12E68780802C837E3890C4F410D36E1FA03097491561E787B39F52131B9955A76D5B0E95C0ED303D289ED3E3A02536C0F03A20376D7311798",
+    "status": {
+      "code": "200",
+      "desc": "操作成功"
+    },
+    "data": [
+      {
+        "name": "总体架构",
+        "id": "main-fm",
+        "active": true,
+        "extend": {
+          "position": "left"
+        },
+        "children": []
+      },
+      {
+        "name": "数据大脑",
+        "id": "mind-map",
+        "active": false,
+        "extend": {
+          "position": "left"
+        },
+        "children": []
+      },
+      {
+        "name": "园区画像",
+        "id": "park-portrayal",
+        "active": false,
+        "extend": {
+          "position": "left"
+        },
+  
+        "children": []
+      },
+      {
+        "name": "工业经济运行",
+        "id": "industrial-economic",
+        "active": false,
+        "extend": {
+          "position": "right"
+        },
+        "children": []
+      },
+      {
+        "name": "园区高质量发展",
+        "id": "high-quality-ent",
+        "active": false,
+        "extend": {
+          "position": "right"
+        },
+        "children": []
+      },
+      {
+        "name": "企业高质量发展",
+        "id": "high-quality-indus",
+        "active": false,
+        "extend": {
+          "position": "right"
+        },
+        "children": []
+      }
+    ]
+  }
+  

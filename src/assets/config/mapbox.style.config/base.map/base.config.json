@@ -1,0 +1,25 @@
+{
+  "basemaps": [
+    {
+      "title": "长三角电子底图",
+      "des": "",
+      "img": "./assets/img/mapthumbnail/map01.png",
+      "style": "http://webres.cityfun.com.cn/csjmap/map.json"
+    },
+    {
+      "title": "苏州市电子底图",
+
+      "des": "",
+      "img": "./assets/img/mapthumbnail/map01.png",
+      "style": "http://webres.cityfun.com.cn/szmap/szmap/map.json"
+    }
+  ],
+  "images": [
+    {
+      "title": "2019年影像",
+      "des": "",
+      "img": "./assets/img/mapthumbnail/map01.png",
+      "style": "./assets/config/mapbox.style.config/base.map/image/image01.json"
+    }
+  ]
+}
