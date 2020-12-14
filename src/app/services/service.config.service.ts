@@ -14,7 +14,7 @@ export class ServiceConfigService implements Resolve<any> {
 
   resolve(): Observable<any> | Observable<never> {
     return this.http.get(uri).pipe(take(1), map((res: any) => {
-            console.log(sessionStorage.getItem('main.config'));
+            // console.log(sessionStorage.getItem('main.config'));
       // sessionStorage.setItem('service.config', JSON      res.results);
       return res;
     }));

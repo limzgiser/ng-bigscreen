@@ -1,6 +1,5 @@
-
 import { HeaderComponent } from './components/header/header.component';
-
+import { NgxG2Directive } from './graphics/ngxG2.directive';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule, registerLocaleData } from '@angular/common';
@@ -21,52 +20,36 @@ import { NzTreeModule } from 'ng-zorro-antd/tree';
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 import { NzPaginationModule } from 'ng-zorro-antd/pagination';
 
-const antZORRO =
-  [
-    NzMenuModule,
-    NzMessageModule,
-    NzInputModule,
-    NzTreeModule,
-    NzLayoutModule,
-    NzIconModule,
-    IconsProviderModule,
-    NzBreadCrumbModule,
-    NzButtonModule,
-    NzPaginationModule
-  ];
-
+const antZORRO = [
+  NzMenuModule,
+  NzMessageModule,
+  NzInputModule,
+  NzTreeModule,
+  NzLayoutModule,
+  NzIconModule,
+  IconsProviderModule,
+  NzBreadCrumbModule,
+  NzButtonModule,
+  NzPaginationModule,
+];
+const directive = [NgxG2Directive];
 // ng 核心模块
 const coreModule = [
   CommonModule,
-   NzDropDownModule,
+  NzDropDownModule,
   HttpClientModule,
   FormsModule,
   ReactiveFormsModule,
-   RouterModule
+  RouterModule,
 ];
 // 业务公共组件
 const selfcomms = [SideMenuComponent, HeaderComponent];
 
-
 registerLocaleData(zh);
 @NgModule({
-  imports: [
-    ...coreModule,
-    ...antZORRO,
-
-
-  ],
-  declarations: [
-    ...selfcomms
-  ],
-  exports: [
-    ...coreModule,
-    ...selfcomms,
-    ...antZORRO,
-
-  ],
-  providers: [
-    { provide: NZ_I18N, useValue: zh_CN }
-  ]
+  imports: [...coreModule, ...antZORRO, ],
+  declarations: [...selfcomms,...directive],
+  exports: [...coreModule, ...selfcomms, ...antZORRO, ...directive],
+  providers: [{ provide: NZ_I18N, useValue: zh_CN }],
 })
-export class SharedModule { }
+export class SharedModule {}
