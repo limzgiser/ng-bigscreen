@@ -10,7 +10,7 @@ export class CityPortrayalComponent implements OnInit {
 
   ngOnInit() {}
   configureChart(chart) {
-    console.log(chart)
+
     const data = [
       { year: '1951 年', sales: 38 },
       { year: '1952 年', sales: 52 },
