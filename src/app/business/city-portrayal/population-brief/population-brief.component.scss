@@ -7,4 +7,111 @@
         width: 584px;
         height: 327px;
     }
+    .briefTotal {
+        width: 597px;
+        height: 163px;
+        margin-top: 40px;
+        margin-right: auto;
+        margin-left: auto;
+        background-image: url("~/assets/img/component-img/population-brief/population.png");
+        .briefTitle {
+            margin-left: 253px;
+            width: fit-content;
+            font-size: 28px;
+            font-family: PingFangSC-Semibold, PingFang SC;
+            font-weight: 600;
+            color: #0FDDFF;
+            line-height: 5px;
+        }
+        .populationData {
+            margin-top: 80px;
+            margin-left: auto;
+            margin-right: auto;
+            width: fit-content;
+            font-size: 69px;
+            font-family: PingFangSC-Semibold, PingFang SC, Arial, Helvetica, sans-serif;
+            font-weight: 600;
+            color: #0FDDFF;
+            line-height: 5px;
+        }
+    }
+    .detailData {
+        height: 118px;
+        width: fit-content;
+        margin-left: 81px;
+        position: relative;
+        margin-top: 23px;
+        .dataCard {
+            float: left;
+            height: 118px;
+            width: 308px;
+            background-image: url("~/assets/img/component-img/population-brief/staticpanel.png");
+            .dataCardTitle {
+                margin-top: 20px;
+                margin-left: auto;
+                margin-right: auto;
+                width: fit-content;
+                font-size: 24px;
+                font-family: PingFangSC-Semibold, PingFang SC;
+                font-weight: 600;
+                color: #FFFFFF;
+                line-height: 33px;
+            }
+            .dataCardData {
+                height: 47px;
+                width: 100%;
+                position: relative;
+                .leftData {
+                    float: left;
+                    margin-left: 12px;
+                    height: 100%;
+                    width: fit-content;
+                    font-size: 40px;
+                    font-family: DINAlternate-Bold, DINAlternate;
+                    font-weight: bold;
+                    color: #76F1FB;
+                    line-height: 47px;
+                    position: relative;
+                    span {
+                        float: left;
+                    }
+                    .dataunit {
+                        float: left;
+                        width: fit-content;
+                        height: 28px;
+                        font-size: 20px;
+                        font-family: PingFangSC-Semibold, PingFang SC;
+                        font-weight: 600;
+                        color: #76F1FB;
+                        margin-top: 8px;
+                    }
+                }
+                .rightData {
+                    margin-top: 20px;
+                    float: left;
+                    margin-left: 20px;
+                    width: fit-content;
+                    font-size: 16px;
+                    font-family: PingFangSC-Semibold, PingFang SC;
+                    font-weight: 600;
+                    color: #FFFFFF;
+                    position: relative;
+                    span {
+                        float: left;
+                    }
+                    .updowncondition {
+                        float: left;
+                        font-size: 18px;
+                        font-family: DINAlternate-Bold, DINAlternate;
+                        font-weight: bold;
+                        color: #EF8612;
+                        line-height: 28px;
+                        background: linear-gradient(180deg, #FDD100 0%, #FF595B 100%);
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                    }
+                }
+            }
+        }
+    }
 }
