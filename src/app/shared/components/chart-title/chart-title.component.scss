@@ -1,16 +1,38 @@
 .container {
     width: 100%;
-    height: 88px;
-    background-color: yellow;
+    height: fit-content;
     .imgcontainer {
         margin-left: 52px;
-        padding-top: 46px;
+        margin-top: 46px;
         height: 6px;
         width: 54px;
         background: linear-gradient(270deg, rgba(16, 19, 78, 0.2) 0%, #0DA3EA 100%);
         border-radius: 1px;
     }
     .textcontainer {
+        // background-color: #0DA3EA;
         margin-left: 52px;
+        position: relative;
+        .charttitle {
+            float: left;
+            width: fit-content;
+            height: 36px;
+            font-size: 28px;
+            font-family: SourceHanSansCN-Bold, SourceHanSansCN;
+            font-weight: bold;
+            color: #C5CCD3;
+            line-height: 36px;
+        }
+        .unittitle {
+            margin-right: 20px;
+            margin-top: 10px;
+            float: right;
+            height: 25px;
+            font-size: 18px;
+            font-family: PingFangSC-Regular, PingFang SC;
+            font-weight: 400;
+            color: #FFFFFF;
+            line-height: 25px;
+        }
     }
 }
