@@ -9,7 +9,9 @@ import {
   Validators,
 } from '@angular/forms';
 import { calcMD5 } from '../../shared/services/md5';
-import { ModuleDataRxInquireService } from '@cmss/core';
+
+import { CfhttpService } from 'src/app/services/cfhttp.service';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -27,7 +29,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     fb: FormBuilder,
     private mzMessageService: NzMessageService,
     private router: Router,
-    private dataRxInquireService: ModuleDataRxInquireService
+    private cfhttpService: CfhttpService
   ) {
     this.form = fb.group({
       account: ['', [Validators.required]],
@@ -59,7 +61,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         account: this.account.value,
         password: calcMD5(this.password.value),
       };
-      this.dataRxInquireService.get('login', 'login', null, params).subscribe(
+      this.cfhttpService.get( 'login', {params}).subscribe(
         (res: any) => {
           if (res && res.status.code.toString().indexOf('200') >= 0) {
             this.loginSuccessCallBack(res.data);
@@ -92,7 +94,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
   ngOnDestroy() {}
   getMeta() {
-    this.dataRxInquireService.get('cf', 'web.meta').subscribe((res) => {
+    this.cfhttpService.get( 'web.meta').subscribe((res) => {
       this.webetaInfo = res;
     });
   }

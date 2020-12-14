@@ -1,19 +1,21 @@
 import { HttpClient } from '@angular/common/http';
-import { ModuleDataRxInquireService } from '@cmss/core';
+
 import { MapboxmapService } from './../mapbox-map/service/mapboxmap.service';
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-
+import { CfhttpService } from 'src/app/services/cfhttp.service';
 
 @Component({
   selector: 'app-mapbox-maptree-control',
   templateUrl: './mapbox-maptree-control.component.html',
-  styleUrls: ['./mapbox-maptree-control.component.scss']
+  styleUrls: ['./mapbox-maptree-control.component.scss'],
 })
 export class MapboxMaptreeControlComponent implements OnInit {
   mapboxglmap = null;
-  constructor(private mapboxmapService: MapboxmapService,
-    private dataRxInquireService: ModuleDataRxInquireService,
-    private http: HttpClient) { }
+  constructor(
+    private mapboxmapService: MapboxmapService,
+    private cfhttpService: CfhttpService,
+    private http: HttpClient
+  ) {}
   defaultKeys: Array<string> = [];
   isLoadedDefaultLayers = false;
   nodes = null;
@@ -23,7 +25,6 @@ export class MapboxMaptreeControlComponent implements OnInit {
   @Output() showLegend = new EventEmitter<any>();
   private legends = [];
   ngOnInit() {
-
     this.getConfig().then((results: any) => {
       this.nodes = results[0].data;
       this.styleConfig = results[1];
@@ -41,7 +42,6 @@ export class MapboxMaptreeControlComponent implements OnInit {
         });
       }
     });
-
   }
 
   // 地图初始化回调
@@ -52,7 +52,7 @@ export class MapboxMaptreeControlComponent implements OnInit {
         this.isLoadedDefaultLayers = true;
         const layerids = this.getLayerInfoByNodeKey(this.defaultKeys);
         this.showLegends(this.defaultKeys);
-        layerids.forEach(key => {
+        layerids.forEach((key) => {
           const layer = this.getLayerStyByKey(key);
           if (!layer) {
             console.log(`未找到${key}对应的图层`);
@@ -61,13 +61,12 @@ export class MapboxMaptreeControlComponent implements OnInit {
           this.addLayer(layer);
         });
       }
-
     });
     if (this.defaultKeys.length > 0 && !this.isLoadedDefaultLayers) {
       this.isLoadedDefaultLayers = true;
       const layerids = this.getLayerInfoByNodeKey(this.defaultKeys);
       this.showLegends(this.defaultKeys);
-      layerids.forEach(key => {
+      layerids.forEach((key) => {
         const layer = this.getLayerStyByKey(key);
         if (!layer) {
           console.log(`未找到${key}对应的图层`);
@@ -76,11 +75,9 @@ export class MapboxMaptreeControlComponent implements OnInit {
         this.addLayer(layer);
       });
     }
-
   }
 
   private addSpecialRes() {
-
     if (this.styleConfig) {
       if (this.styleConfig.sprite) {
         const spritUrl = this.styleConfig.sprite;
@@ -89,7 +86,7 @@ export class MapboxMaptreeControlComponent implements OnInit {
         return;
       }
     } else {
-      this.getSpecialMapStyle().then(style => {
+      this.getSpecialMapStyle().then((style) => {
         if (this.styleConfig.sprite) {
           const spritUrl = this.styleConfig.sprite;
           return this.addImages(spritUrl);
@@ -102,29 +99,31 @@ export class MapboxMaptreeControlComponent implements OnInit {
   // 专题图雪碧图图片资源
   addImages(spritePath) {
     const self = this;
-    return this.http.get(`${spritePath}.json`).toPromise().then(spriteJson => {
-      const img = new Image();
-      img.onload = function () {
-        Object.keys(spriteJson).forEach(key => {
-          const spriteItem = spriteJson[key];
-          const { x, y, width, height } = spriteItem;
-          const canvas = self.createCavans(width, height);
-          const context = canvas.getContext('2d');
-          context.drawImage(img, x, y, width, height, 0, 0, width, height);
-          // 单位雪碧图项，转base64字符串
-          const base64Url = canvas.toDataURL('image/png');
-          self.mapboxglmap.loadImage(base64Url, (error, simg) => {
-            if (!self.mapboxglmap.hasImage(key)) {
-              self.mapboxglmap.addImage(key, simg);
-            }
+    return this.http
+      .get(`${spritePath}.json`)
+      .toPromise()
+      .then((spriteJson) => {
+        const img = new Image();
+        img.onload = function () {
+          Object.keys(spriteJson).forEach((key) => {
+            const spriteItem = spriteJson[key];
+            const { x, y, width, height } = spriteItem;
+            const canvas = self.createCavans(width, height);
+            const context = canvas.getContext('2d');
+            context.drawImage(img, x, y, width, height, 0, 0, width, height);
+            // 单位雪碧图项，转base64字符串
+            const base64Url = canvas.toDataURL('image/png');
+            self.mapboxglmap.loadImage(base64Url, (error, simg) => {
+              if (!self.mapboxglmap.hasImage(key)) {
+                self.mapboxglmap.addImage(key, simg);
+              }
+            });
           });
-        });
-
-      };
-      img.crossOrigin = 'anonymous';
-      img.src = `${spritePath}.png`;
-      return 1;
-    });
+        };
+        img.crossOrigin = 'anonymous';
+        img.src = `${spritePath}.png`;
+        return 1;
+      });
   }
   createCavans(width, height) {
     const canvas = document.createElement('canvas');
@@ -136,20 +135,22 @@ export class MapboxMaptreeControlComponent implements OnInit {
   loadInitLayers(keys) {
     // 加载默认勾选图层
     this.defaultKeys = keys;
-    if (this.mapboxglmap && this.mapboxglmap.isStyleLoaded() && !this.isLoadedDefaultLayers) {
+    if (
+      this.mapboxglmap &&
+      this.mapboxglmap.isStyleLoaded() &&
+      !this.isLoadedDefaultLayers
+    ) {
       this.isLoadedDefaultLayers = true;
       const layerids = this.getLayerInfoByNodeKey(this.defaultKeys);
       this.showLegends(this.defaultKeys);
-      layerids.forEach(key => {
+      layerids.forEach((key) => {
         const layer = this.getLayerStyByKey(key);
         if (!layer) {
           console.log(`未找到${key}对应的图层`);
           return;
-
         }
         this.addLayer(layer);
       });
-
     }
   }
   /**
@@ -165,17 +166,15 @@ export class MapboxMaptreeControlComponent implements OnInit {
   selectLayers(nodekeys) {
     const layerids = this.getLayerInfoByNodeKey(nodekeys);
     this.showLegends(nodekeys);
-    layerids.forEach(key => {
+    layerids.forEach((key) => {
       const layer = this.getLayerStyByKey(key);
       if (!layer) {
         console.log(`未找到${key}对应的图层`);
         return;
-
       }
       this.addLayer(layer);
     });
   }
-
 
   removeLayers(keys) {
     const layerids = this.getLayerInfoByNodeKey(keys);
@@ -188,12 +187,11 @@ export class MapboxMaptreeControlComponent implements OnInit {
     if (rtype === 'add') {
       this.legends.push(...legneds);
     } else {
-      this.legends = this.legends.filter(i => {
+      this.legends = this.legends.filter((i) => {
         return !(legneds.indexOf(i) > -1);
       });
     }
     this.showLegend.emit(this.legends);
-
   }
   private addLayer(layer) {
     const layersource = this.mapboxglmap.getSource(layer.source);
@@ -208,7 +206,9 @@ export class MapboxMaptreeControlComponent implements OnInit {
     //     this.mapboxglmap.addLayer(layer);
     //   });
     // } else {
-    if (!layer) { return; }
+    if (!layer) {
+      return;
+    }
     if (this.mapboxglmap.getLayer(layer.id)) {
       this.mapboxmapService.removeLayerByIds([layer.id]);
     }
@@ -248,7 +248,6 @@ export class MapboxMaptreeControlComponent implements OnInit {
   //     }
   //   });
 
-
   // }
   // 获取配置文件
   getConfig() {
@@ -256,7 +255,7 @@ export class MapboxMaptreeControlComponent implements OnInit {
       this.getTreeConfig(),
       this.getSpecialMapStyle(),
       // this.getIconsCofig(),
-      this.getTreeKeyLyrIdConfig()
+      this.getTreeKeyLyrIdConfig(),
     ]);
   }
   // 获取树节点对应的图层Ids
@@ -264,8 +263,10 @@ export class MapboxMaptreeControlComponent implements OnInit {
     const ids = [];
     const legends = [];
     if (this.nodeKeyLayerids) {
-      nodeKeys.forEach(nodekey => {
-        const fitem = this.nodeKeyLayerids.find(item => nodekey === item.nodeid);
+      nodeKeys.forEach((nodekey) => {
+        const fitem = this.nodeKeyLayerids.find(
+          (item) => nodekey === item.nodeid
+        );
         const layerids = fitem.layerid;
         const legend = fitem.legned;
         ids.push(...layerids);
@@ -276,30 +277,27 @@ export class MapboxMaptreeControlComponent implements OnInit {
       } else {
         return ids;
       }
-
     } else {
       console.log('图层树节点-图层ID配置文件未加载！！');
     }
   }
 
-  treeSearch(node) {
-
-  }
+  treeSearch(node) {}
   // 图层书配置文件
   private getTreeConfig() {
-    return this.dataRxInquireService.get('mapboxmap', 'tree.config', null, null).toPromise();
+    return this.cfhttpService.get('tree.config').toPromise();
   }
   // 专题图样式
   private getSpecialMapStyle() {
-    return this.dataRxInquireService.get('mapboxmap', 'special.map', null, null).toPromise();
+    return this.cfhttpService.get('special.map').toPromise();
   }
   // 专题图图标
   private getIconsCofig() {
-    return this.dataRxInquireService.get('mapboxmap', 'special.ions', null, null).toPromise();
+    return this.cfhttpService.get('special.ions').toPromise();
   }
   // 图层树对应图层ID配置文件
   private getTreeKeyLyrIdConfig() {
-    return this.dataRxInquireService.get('mapboxmap', 'tree.key.layer.id', null, null).toPromise();
+    return this.cfhttpService.get('tree.key.layer.id').toPromise();
   }
   destroy(data) {
     const layerids = this.getLayerInfoByNodeKey(data);
