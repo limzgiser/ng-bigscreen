@@ -7,7 +7,8 @@ import {
   Input,
 } from '@angular/core';
 import { Router } from '@angular/router';
-import { ModuleDataRxInquireService } from '@cmss/core';
+import { CfhttpService } from 'src/app/services/cfhttp.service';
+ 
 
 
 @Component({
@@ -17,7 +18,7 @@ import { ModuleDataRxInquireService } from '@cmss/core';
 })
 export class SideMenuComponent implements OnInit {
   menus = [];
-  constructor(private router: Router, private dataRxInquireService: ModuleDataRxInquireService) { }
+  constructor(private router: Router, private cfhttpService: CfhttpService) { }
   isCollapsed = true;
 
   @Output() sideBarEventEmitter = new EventEmitter<any>();
@@ -28,7 +29,7 @@ export class SideMenuComponent implements OnInit {
     this.getConfigData();
   }
   private getConfigData() {
-    this.dataRxInquireService.get('cf', 'menu.config').subscribe(res => {
+    this.cfhttpService.get('menu.config').subscribe(res => {
       this.menus = res.data;
     });
   }
