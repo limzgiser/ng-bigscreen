@@ -16,10 +16,7 @@ export class NgxG2Directive implements AfterViewInit {
 
   constructor(private elementRef: ElementRef) {}
 
-
-
   ngAfterViewInit(): void {
-    console.log(111111111);
     const hostElement = this.elementRef.nativeElement;
     const box = hostElement.getBoundingClientRect();
     this.configure.emit(

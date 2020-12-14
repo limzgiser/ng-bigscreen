@@ -4,9 +4,10 @@
         "code": "200",
         "desc": "操作成功"
     },
-    "data": [{
-        "id": "01",
-        "desc": "地图服务配置文件",
-        "url": "./assets/config/service.config.json"
-    }]
+    "data":  {
+         "map-config":"./assets/config/map.config.json",
+         "service-config":"./assets/config/service.config.json"
+    }
+        
+         
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CfhttpService } from 'src/app/services/cfhttp.service';
 
 @Component({
   selector: 'app-city-portrayal',
@@ -6,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./city-portrayal.component.scss'],
 })
 export class CityPortrayalComponent implements OnInit {
-  constructor() {}
+  constructor(private cfhttpService:CfhttpService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.cfhttpService.get('base.map').subscribe(res=>{
+      console.log(res);
+    }) 
+  }
   configureChart(chart) {
 
     const data = [

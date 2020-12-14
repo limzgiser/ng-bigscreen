@@ -1,27 +1,20 @@
-import { HttpClient } from "@angular/common/http";
-import { Injectable } from "@angular/core";
-import { ModuleDataRxInquireService } from "@cmss/core";
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { CfhttpService } from 'src/app/services/cfhttp.service';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class MapboxmapService {
-
   styleinit = false;
 
   specialStyel = null;
 
   mapboxmap = null;
 
-  constructor(
-    private http: HttpClient,
-    private dataRxInquireService: ModuleDataRxInquireService
-  ) {
+  constructor(private http: HttpClient, private cfhttpService: CfhttpService) {
     this.init().then((res) => {
- 
-      this.mapboxmap.on("load", () => {
- 
-      });
+      this.mapboxmap.on('load', () => {});
     });
   }
   /**
@@ -36,31 +29,24 @@ export class MapboxmapService {
     } else {
       return Promise.all([
         this.getBaseMapStyle().then((style_base: any) => {
-
           return this.createSpMap(style_base);
-        }),
-        this.getSpecialMapStyle().then((style_special: any) => {
-          self.specialStyel = style_special;
-          return style_special; //
         }),
       ]).then((res) => {
         return res[0];
       });
     }
   }
-   
+
   /**
    * 获取底图样式配置文件
    */
   private getBaseMapStyle() {
-    return this.dataRxInquireService.get("mapboxmap", "base.map").toPromise();
+    return this.cfhttpService.get('base.map').toPromise();
   }
   /**
    * 获取专题图样式配置文件
    */
-  private getSpecialMapStyle() {
-    return this.dataRxInquireService.get("mapboxmap", "special.map", null, null).toPromise();
-  }
+  
 
   /**
    *
@@ -72,10 +58,9 @@ export class MapboxmapService {
       if (this.mapboxmap) {
         resolve(this.mapboxmap);
       } else {
-
         const tmpstyle = {
-          container: "mapboxmap",
-          style: stylejson 
+          container: 'mapboxmap',
+          style: stylejson,
           // minZoom: 14,
           // "center": [120.715107, 31.159329],
           // pitch: 53.99999999999998,
@@ -86,7 +71,7 @@ export class MapboxmapService {
       }
     });
   }
- 
+
   /**
    * 获取地图
    */
