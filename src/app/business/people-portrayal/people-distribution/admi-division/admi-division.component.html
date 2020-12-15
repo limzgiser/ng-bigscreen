@@ -1,0 +1,30 @@
+<div class="container">
+  <app-chart-title [chartTitle]="'行政区划'" [unit]=""></app-chart-title>
+  <div class="area-select">
+    <span> 当前区域：常熟市 </span>
+    <i nz-icon nzType="down" nzTheme="outline"></i>
+  </div>
+  <div class="index-statistics">
+    <div class="item" *ngFor="let item of indexStatistics">
+      <div class="top">{{ item.label }}</div>
+      <div class="bottom">
+        <span class="value">{{ item.value }}</span>
+        <span class="unit">{{ item.unit }}</span>
+      </div>
+    </div>
+  </div>
+
+  <app-cf-scroll class="list">
+    <div class="content">
+      <div class="item" *ngFor="let item of list">
+        <div class="left">{{ item.label }}</div>
+        <div class="right">
+          <div class="value">{{ item.value }}</div>
+          <div class="icon">
+            <i nz-icon nzType="right" nzTheme="outline"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </app-cf-scroll>
+</div>

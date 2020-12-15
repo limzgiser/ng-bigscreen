@@ -2,8 +2,6 @@
     width: 100%;
     height: fit-content;
     .imgcontainer {
-        margin-left: 52px;
-        margin-top: 46px;
         height: 6px;
         width: 54px;
         background: linear-gradient(270deg, rgba(16, 19, 78, 0.2) 0%, #0DA3EA 100%);
@@ -11,7 +9,7 @@
     }
     .textcontainer {
         // background-color: #0DA3EA;
-        margin-left: 52px;
+    
         position: relative;
         .charttitle {
             float: left;

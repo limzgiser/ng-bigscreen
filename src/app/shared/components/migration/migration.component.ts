@@ -251,16 +251,16 @@ export class MigrationComponent implements OnInit {
       tooltip: {
           trigger: 'item'
       },
-      legend: {
-          orient: 'vertical',
-          top: 'bottom',
-          left: 'right',
-          data: ['北京 Top10', '上海 Top10', '广州 Top10'],
-          textStyle: {
-              color: '#fff'
-          },
-          selectedMode: 'single'
-      },
+    //   legend: {
+    //       orient: 'vertical',
+    //       top: 'bottom',
+    //       left: 'right',
+    //       data: ['北京 Top10', '上海 Top10', '广州 Top10'],
+    //       textStyle: {
+    //           color: '#fff'
+    //       },
+    //       selectedMode: 'single'
+    //   },
       geo: {
           map: 'china',
           label: {
