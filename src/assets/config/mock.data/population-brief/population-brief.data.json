@@ -1,0 +1,24 @@
+{
+    "cardTitle": "人口总览",
+    "unit": "",
+    "data": {
+        "name": "常住人口",
+        "unit": "万人",
+        "value": "196.06",
+        "item": [{
+                "name": "户籍人口",
+                "unit": "万人",
+                "value": "102.76",
+                "ratio": "",
+                "ratio_unit": ""
+            },
+            {
+                "name": "流动人口",
+                "unit": "万人",
+                "value": "93.17",
+                "ratio": "",
+                "ratio_unit": "%"
+            }
+        ]
+    }
+}

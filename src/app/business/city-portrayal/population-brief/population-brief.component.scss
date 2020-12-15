@@ -1,6 +1,6 @@
 .pancel {
     width: 100%;
-    height: 100%;
+    height: calc(100% - 46px);
     .chartcontainer {
         margin-left: auto;
         margin-right: auto;
@@ -31,8 +31,22 @@
             font-size: 69px;
             font-family: PingFangSC-Semibold, PingFang SC, Arial, Helvetica, sans-serif;
             font-weight: 600;
-            color: #0FDDFF;
+            color: #76F1FB;
             line-height: 5px;
+            position: relative;
+            span {
+                float: left;
+            }
+            .populationUnit {
+                float: left;
+                margin-left: 10px;
+                font-size: 40px;
+                font-family: PingFangSC-Semibold, PingFang SC;
+                font-weight: 600;
+                color: #76F1FB;
+                margin-top: 4px;
+                //line-height: 56px;
+            }
         }
     }
     .detailData {
@@ -63,11 +77,12 @@
                 position: relative;
                 .leftData {
                     float: left;
-                    margin-left: 12px;
+                    margin-left: 20px;
                     height: 100%;
                     width: fit-content;
-                    font-size: 40px;
-                    font-family: DINAlternate-Bold, DINAlternate;
+                    //TODO 字体样式限制 字号暂时妥协
+                    font-size: 34.5px;
+                    font-family: DINAlternate-Bold, DINAlternate, Arial, Helvetica, sans-serif;
                     font-weight: bold;
                     color: #76F1FB;
                     line-height: 47px;
@@ -83,32 +98,54 @@
                         font-family: PingFangSC-Semibold, PingFang SC;
                         font-weight: 600;
                         color: #76F1FB;
-                        margin-top: 8px;
+                        margin-top: 2px;
                     }
                 }
                 .rightData {
-                    margin-top: 20px;
+                    margin-top: 15px;
                     float: left;
                     margin-left: 20px;
                     width: fit-content;
                     font-size: 16px;
-                    font-family: PingFangSC-Semibold, PingFang SC;
+                    font-family: PingFangSC-Semibold, PingFang SC, Arial, Helvetica, sans-serif;
                     font-weight: 600;
                     color: #FFFFFF;
                     position: relative;
                     span {
                         float: left;
                     }
-                    .updowncondition {
+                    .upcondition {
+                        margin-top: -2px;
+                        margin-left: 3px;
                         float: left;
                         font-size: 18px;
                         font-family: DINAlternate-Bold, DINAlternate;
                         font-weight: bold;
-                        color: #EF8612;
                         line-height: 28px;
+                        color: #EF8612;
                         background: linear-gradient(180deg, #FDD100 0%, #FF595B 100%);
                         -webkit-background-clip: text;
                         -webkit-text-fill-color: transparent;
+                    }
+                    .downcondition {
+                        margin-top: -2px;
+                        margin-left: 3px;
+                        float: left;
+                        font-size: 18px;
+                        font-family: DINAlternate-Bold, DINAlternate;
+                        font-weight: bold;
+                        line-height: 28px;
+                        color: #EF8612;
+                        background: linear-gradient(180deg, #00FD8E 0%, #59F7FF 100%);
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                    }
+                    .arrowContianer {
+                        width: 12px;
+                        height: 14px;
+                        float: left;
+                        margin-left: 1px;
+                        margin-top: 6px;
                     }
                 }
             }

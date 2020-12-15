@@ -1,18 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { CfhttpService } from 'src/app/services/cfhttp.service';
-
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { map, filter } from 'rxjs/operators';
 @Component({
   selector: 'app-city-portrayal',
   templateUrl: './city-portrayal.component.html',
   styleUrls: ['./city-portrayal.component.scss'],
 })
 export class CityPortrayalComponent implements OnInit {
-  constructor(private cfhttpService:CfhttpService) {}
-
+  constructor(private cfhttpService:CfhttpService,private http: HttpClient) {}
+  populationBrefData;
   ngOnInit() {
-    this.cfhttpService.get('base.map').subscribe(res=>{
-      console.log(res);
-    }) 
+    this.cfhttpService.get('population.brief.data','population.brief').subscribe(res=>{
+      this.http.get(res.list[0].url).pipe(
+      );
+
+    });
   }
   configureChart(chart) {
 

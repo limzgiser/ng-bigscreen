@@ -1,0 +1,7 @@
+{
+    "list": [{
+        "id": "population.brief",
+        "des": "人口画像数据",
+        "url": "./assets/config/mock.data/population-brief/population-brief.data.json"
+    }]
+}

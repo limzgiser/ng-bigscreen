@@ -1,37 +1,41 @@
 {
-  "host": {
-    "{{loginHost}}": "http://192.168.2.41",
-    "{{loginHost2}}": "http://192.168.2.41"
-  },
-  "list": [
-    {
-      "id": "tree.config",
-      "des": "图层书配置文件",
-      "url": "./assets/config/maptree/map.tree.config.json"
+    "host": {
+        "{{loginHost}}": "http://192.168.2.41",
+        "{{loginHost2}}": "http://192.168.2.41"
     },
-    {
-      "id": "base.map",
-      "des": "底图样式",
-      "url": "http://webres.cityfun.com.cn/csmap/csmap_blue/3857/map_blue.json"
-    },
-    {
-      "id": "login",
-      "url": "{{loginHost}}/WJSCMAPI/csscm/v1/login"
-    },
-    {
-      "id": "login2",
-      "url": "{{loginHost2}}/assets/config/services/login.modules.json"
-    },  {
-      "id": "menu.config",
-      "url": "./assets/config/menu.config.json"
-    },
-    {
-      "id": "tree.config",
-      "url": "./assets/config/maptree/map.tree.config.json"
-    },
-    {
-      "id": "web.meta",
-      "url": "./assets/config/web.meta/web.meta.json"
-    }
-  ]
+    "list": [{
+            "id": "tree.config",
+            "des": "图层书配置文件",
+            "url": "./assets/config/maptree/map.tree.config.json"
+        },
+        {
+            "id": "base.map",
+            "des": "底图样式",
+            "url": "http://webres.cityfun.com.cn/csmap/csmap_blue/3857/map_blue.json"
+        },
+        {
+            "id": "population.brief.data",
+            "des": "人口画像数据",
+            "url": "./assets/config/mock.data/population-brief/population-brief.data.list.json"
+        },
+        {
+            "id": "login",
+            "url": "{{loginHost}}/WJSCMAPI/csscm/v1/login"
+        },
+        {
+            "id": "login2",
+            "url": "{{loginHost2}}/assets/config/services/login.modules.json"
+        }, {
+            "id": "menu.config",
+            "url": "./assets/config/menu.config.json"
+        },
+        {
+            "id": "tree.config",
+            "url": "./assets/config/maptree/map.tree.config.json"
+        },
+        {
+            "id": "web.meta",
+            "url": "./assets/config/web.meta/web.meta.json"
+        }
+    ]
 }
