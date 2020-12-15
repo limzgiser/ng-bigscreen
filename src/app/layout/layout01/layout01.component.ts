@@ -5,6 +5,8 @@ import {
   NavigationStart,
   NavigationEnd,
 } from '@angular/router';
+import { fromEvent } from 'rxjs';
+import { debounceTime } from 'rxjs/operators';
 @Component({
   selector: 'app-layout01',
   templateUrl: './layout01.component.html',
@@ -30,6 +32,11 @@ export class Layout01Component implements OnInit {
 
   ngOnInit() {
     this.resize();
+    fromEvent(window,'resize').pipe(debounceTime(300)).subscribe((event) => {
+   
+       this.resize();
+    });
+    
   }
   private initRouter(routerArr) {
     this.activeNavBarSelect(routerArr);
@@ -54,4 +61,6 @@ export class Layout01Component implements OnInit {
     document.body.style.transformOrigin = '0 0';
     document.body.style.transform = 'scale(' + s + ',' + s + ')';
   }
+
+  
 }
