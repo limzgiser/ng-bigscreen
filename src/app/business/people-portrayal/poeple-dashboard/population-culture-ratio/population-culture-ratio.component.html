@@ -1,1 +1,10 @@
-<app-circle-progress-graph></app-circle-progress-graph>
+<div class="pancel">
+    <app-chart-title [chartTitle]="'人口总览'" [unit]="'单位:百分比'"></app-chart-title>
+    <div class="groupchartcontainer">
+        <ng-container *ngFor="let item of tmpData">
+            <div class="singlechartcontianer">
+                <app-circle-progress-graph [chartdata]="item"></app-circle-progress-graph>
+            </div>
+        </ng-container>
+    </div>
+</div>

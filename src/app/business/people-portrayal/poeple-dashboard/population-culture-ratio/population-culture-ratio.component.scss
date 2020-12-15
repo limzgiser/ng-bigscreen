@@ -1,0 +1,21 @@
+.pancel {
+    width: 100%;
+    height: 100%;
+    padding-top: 46px;
+    .groupchartcontainer {
+        width: 720px;
+        height: fit-content;
+        //height: 327px;
+        margin-left: -28px;
+        margin-top: 32px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        .singlechartcontianer {
+            margin-top: 31px;
+            margin-left: 81px;
+            height: fit-content;
+            width: fit-content;
+        }
+    }
+}
