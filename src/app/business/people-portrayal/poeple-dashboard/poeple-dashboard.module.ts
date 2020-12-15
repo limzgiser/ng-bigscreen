@@ -4,6 +4,7 @@ import { PoepleDashboardComponent } from './poeple-dashboard.component';
 import { PeopleDashboardRoutes } from './people-dashboard.routing';
 import {PopulationBriefComponent} from './population-brief/population-brief.component';
 import {PopulationSexRatioComponent} from './population-sex-ratio/population-sex-ratio.component';
+import {MobilePeopleComingComponent} from './mobile-people-coming/mobile-people-coming.component';
 import { CityfunModule } from 'src/app/cityfun/cityfun.module';
 @NgModule({
   imports: [
@@ -12,6 +13,7 @@ import { CityfunModule } from 'src/app/cityfun/cityfun.module';
   declarations: [
     PoepleDashboardComponent,
     PopulationBriefComponent,
-    PopulationSexRatioComponent]
+    PopulationSexRatioComponent,
+    MobilePeopleComingComponent]
 })
 export class PoepleDashboardModule { }

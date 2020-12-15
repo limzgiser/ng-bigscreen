@@ -7,13 +7,16 @@
             <div class="chartcontainer">
                 <app-population-sex-ratio></app-population-sex-ratio>
             </div>
-            <div class="chartcontainer" ngxG2 (configure)="configureChart($event)"></div>
+            <div class="chartcontainer">
+                <app-mobile-people-coming></app-mobile-people-coming>
+            </div>
+
         </div>
     </div>
     <div class="center-pancel">2</div>
     <div class="right-pancel">
         <div class="chart-grid">
-            <div class="chartcontainer"></div>
+            <div class="chartcontainer" ngxG2 (configure)="configureChart($event)"></div>
             <div class="chartcontainer"></div>
             <div class="chartcontainer"></div>
         </div>
