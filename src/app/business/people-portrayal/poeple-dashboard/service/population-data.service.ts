@@ -1,17 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-
-@Component({
-  selector: 'app-poeple-dashboard',
-  templateUrl: './poeple-dashboard.component.html',
-  styleUrls: ['./poeple-dashboard.component.scss']
+import { Injectable } from '@angular/core';
+import { CfhttpService } from 'src/app/services/cfhttp.service';
+@Injectable({
+  providedIn: 'root'
 })
-export class PoepleDashboardComponent implements OnInit {
+export class PopulationDataService {
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(private cfhttpService: CfhttpService) { }
+  public getPopulationBriefData() {
+    this.cfhttpService.get('base.map').subscribe(res=>{
+      console.log(res);
+    }) 
   }
-  configureChart(chart) {
+  public configureChart(chart) {
 
     const data = [
       { year: '1951 年', sales: 38 },
