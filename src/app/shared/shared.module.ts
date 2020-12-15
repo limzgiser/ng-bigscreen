@@ -14,7 +14,7 @@ import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import zh from '@angular/common/locales/zh';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzMessageModule } from 'ng-zorro-antd/message';
-import { SideMenuComponent } from './components';
+import { MigrationComponent, SideMenuComponent } from './components';
 import { NzTreeModule } from 'ng-zorro-antd/tree';
 
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
@@ -43,7 +43,7 @@ const coreModule = [
   RouterModule,
 ];
 // 业务公共组件
-const selfcomms = [SideMenuComponent, HeaderComponent];
+const selfcomms = [SideMenuComponent, HeaderComponent,MigrationComponent];
 
 registerLocaleData(zh);
 @NgModule({
