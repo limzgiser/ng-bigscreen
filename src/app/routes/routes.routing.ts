@@ -22,14 +22,30 @@ export const routes: Routes = [
        menuConfig:MenuConfigService
     },
     children: [
-      { path: '', redirectTo: 'city-portrayal', pathMatch: 'full' },
-      {
-        path: 'dashboard',
-        loadChildren: () => import('../business/dashboard/dashboard.module').then(m => m.DashboardModule),
-      },
+      { path: '', redirectTo: 'people-portrayal', pathMatch: 'full' },
       {
         path: 'city-portrayal',
         loadChildren: () => import('../business/city-portrayal/city-portrayal.module').then(m => m.CityPortrayalModule),
+      },
+      {
+        path: 'people-portrayal',
+        loadChildren: () => import('../business/people-portrayal/people-portrayal.module').then(m => m.PeoplePortrayalModule),
+      },
+      {
+        path: 'ent-portrayal',
+        loadChildren: () => import('../business/ent-portrayal/ent-portrayal.module').then(m => m.EntPortrayalModule),
+      },
+      {
+        path: 'city-event',
+        loadChildren: () => import('../business/city-event/city-event.module').then(m => m.CityEventModule),
+      },
+      {
+        path: 'city-plane',
+        loadChildren: () => import('../business/city-plane/city-plane.module').then(m => m.CityPlaneModule),
+      },
+      {
+        path: 'scene-analyse',
+        loadChildren: () => import('../business/scene-analyse/scene-analyse.module').then(m => m.SceneAnalyseModule),
       }
     ]
   }
