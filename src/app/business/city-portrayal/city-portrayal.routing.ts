@@ -7,5 +7,4 @@ const routes: Routes = [
     component: CityPortrayalComponent,
   },
 ];
-
 export const CityPortrayalRoutes = RouterModule.forChild(routes);

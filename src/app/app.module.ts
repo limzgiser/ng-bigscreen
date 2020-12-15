@@ -1,4 +1,4 @@
-import { CityfunModule } from './cityfun/cityfun.module';
+
 import { Layout01Component } from './layout/layout01/layout01.component';
 
 import { LayoutRoutesModule } from './routes/routes.module';
@@ -12,6 +12,7 @@ import { ServiceConfigService } from './services/service.config.service';
 import { MapboxmapService } from './cityfun/mapbox-map/service/mapboxmap.service';
 import { MenuConfigService } from './services/menu.config.service';
 import { CfhttpService } from './services/cfhttp.service';
+import { CityfunModule } from './cityfun/cityfun.module';
 
 
 @NgModule({
@@ -20,7 +21,7 @@ import { CfhttpService } from './services/cfhttp.service';
     BrowserModule,
     BrowserAnimationsModule,
     LayoutRoutesModule,
-    CityfunModule,
+    CityfunModule
   ],
   bootstrap: [AppComponent],
   providers: [

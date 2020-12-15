@@ -35,7 +35,7 @@ export class Layout01Component implements OnInit {
     this.activeNavBarSelect(routerArr);
   }
   routerToEmitter(e) {
-    this.router.navigate([`./business/layout/${e}`]);
+    this.router.navigate([`./layout/${e}`]);
   }
   private activeNavBarSelect(routerArr) {
     if (this.menuData.data.length === 0) {
