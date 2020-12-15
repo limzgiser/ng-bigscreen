@@ -14,10 +14,10 @@ import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import zh from '@angular/common/locales/zh';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzMessageModule } from 'ng-zorro-antd/message';
-import { SideMenuComponent } from './components';
 import {StaticCardComponent} from './components'
 import {ChartTitleComponent} from './components';
 import {ClildrenNavComponent} from './components';
+import { MigrationComponent, SideMenuComponent } from './components';
 import { NzTreeModule } from 'ng-zorro-antd/tree';
 
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
@@ -51,8 +51,10 @@ const selfcomms = [
    HeaderComponent,
    ChartTitleComponent,
    StaticCardComponent,
-   ClildrenNavComponent
+   ClildrenNavComponent,
+   MigrationComponent
   ];
+
 
 registerLocaleData(zh);
 @NgModule({

@@ -9,6 +9,7 @@ export class CityEventComponent implements OnInit {
 
   constructor() { }
 
+
   ngOnInit() {
   }
 
