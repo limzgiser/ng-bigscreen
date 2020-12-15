@@ -17,6 +17,7 @@ import { NzMessageModule } from 'ng-zorro-antd/message';
 import { SideMenuComponent } from './components';
 import {StaticCardComponent} from './components'
 import {ChartTitleComponent} from './components';
+import {ClildrenNavComponent} from './components';
 import { NzTreeModule } from 'ng-zorro-antd/tree';
 
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
@@ -45,7 +46,13 @@ const coreModule = [
   RouterModule,
 ];
 // 业务公共组件
-const selfcomms = [SideMenuComponent, HeaderComponent,ChartTitleComponent,StaticCardComponent];
+const selfcomms = [
+  SideMenuComponent,
+   HeaderComponent,
+   ChartTitleComponent,
+   StaticCardComponent,
+   ClildrenNavComponent
+  ];
 
 registerLocaleData(zh);
 @NgModule({

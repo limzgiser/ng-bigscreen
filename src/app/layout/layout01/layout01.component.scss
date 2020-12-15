@@ -1,35 +1,34 @@
 .inner-content {
-  width: 3360px;
-  height: 1350px;
-  position: relative;
-  background: #000424;
-  transform-origin: 0 0;
-  .headder {
-    height: 79px;
-    width: 100%;
-  }
-
-  .main-container {
-    width: 100%;
-    height: calc(100% - 79px);
+    width: 3360px;
+    height: 1350px;
     position: relative;
-    display: flex;
-    .map-container {
-      position: absolute;
-      top: 0px;
-      left: 0px;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
+    background: #000424;
+    transform-origin: 0 0;
+    .headder {
+        height: 79px;
+        width: 100%;
     }
-    .business-page {
-      position: absolute;
-      top: 0px;
-      left: 0px;
-      width: 100%;
-      height: 100%;
-      z-index: 1;
-      pointer-events: none;
+    .main-container {
+        width: 100%;
+        height: calc(100% - 79px);
+        position: relative;
+        display: flex;
+        .map-container {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+        .business-page {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
     }
-  }
 }

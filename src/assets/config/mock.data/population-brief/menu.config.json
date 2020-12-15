@@ -1,0 +1,30 @@
+{
+    "version": "v1.0.0",
+    "href": null,
+    "ticket": "3DA397BEA3A3B7D3AD4AEBA5C8F5FC4034E1B70A3CA2A8F710B40279A406C20E55AD0E16C178EBC6AA5F9715A16B1FD12E68780802C837E3890C4F410D36E1FA03097491561E787B39F52131B9955A76D5B0E95C0ED303D289ED3E3A02536C0F03A20376D7311798",
+    "status": {
+        "code": "200",
+        "desc": "操作成功"
+    },
+    "data": [{
+            "name": "总览",
+            "id": "dashboard",
+            "active": true
+        },
+        {
+            "name": "人口分布",
+            "id": "distribution",
+            "active": false
+        },
+        {
+            "name": "流动人口",
+            "id": "flow",
+            "active": false
+        },
+        {
+            "name": "重点人员",
+            "id": "important",
+            "active": false
+        }
+    ]
+}

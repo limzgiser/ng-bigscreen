@@ -1,0 +1,8 @@
+<div class="pancel">
+    <ng-container *ngFor="let item of data">
+        <div class="item" [ngClass]="{'active': item.active}">
+            <div class="title" (click)="itemclick(item)">{{item.name}}</div>
+        </div>
+    </ng-container>
+
+</div>

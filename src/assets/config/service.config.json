@@ -14,11 +14,6 @@
             "url": "http://webres.cityfun.com.cn/csmap/csmap_blue/3857/map_blue.json"
         },
         {
-            "id": "population.brief.data",
-            "des": "人口画像数据",
-            "url": "./assets/config/mock.data/population-brief/population-brief.data.list.json"
-        },
-        {
             "id": "login",
             "url": "{{loginHost}}/WJSCMAPI/csscm/v1/login"
         },
@@ -36,6 +31,11 @@
         {
             "id": "web.meta",
             "url": "./assets/config/web.meta/web.meta.json"
+        },
+        {
+            "id": "poulation.brief.menu",
+            "des": "人口画像菜单",
+            "url": "./assets/config/mock.data/population-brief/menu.config.json"
         }
     ]
 }
