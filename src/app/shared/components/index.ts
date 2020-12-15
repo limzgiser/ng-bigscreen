@@ -4,3 +4,4 @@ export * from './chart-title/chart-title.component';
 export * from './static-card/static-card.component';
 export * from './clildren-nav/clildren-nav.component';
 export * from './migration/migration.component';
+export * from './circle-progress-graph/circle-progress-graph.component';

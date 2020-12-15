@@ -17,6 +17,7 @@ import { NzMessageModule } from 'ng-zorro-antd/message';
 import {StaticCardComponent} from './components'
 import {ChartTitleComponent} from './components';
 import {ClildrenNavComponent} from './components';
+import {CircleProgressGraphComponent} from './components';
 import { MigrationComponent, SideMenuComponent } from './components';
 import { NzTreeModule } from 'ng-zorro-antd/tree';
 
@@ -52,7 +53,8 @@ const selfcomms = [
    ChartTitleComponent,
    StaticCardComponent,
    ClildrenNavComponent,
-   MigrationComponent
+   MigrationComponent,
+   CircleProgressGraphComponent
   ];
 
 

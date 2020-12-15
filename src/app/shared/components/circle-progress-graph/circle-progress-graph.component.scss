@@ -1,0 +1,22 @@
+.pancel {
+    width: 96px;
+    height: fit-content;
+    flex-direction: column;
+    .chartbox {
+        width: 86px;
+        height: 86px;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: greenyellow;
+    }
+    .chartname {
+        margin-top: 8px;
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 24px;
+        font-family: SourceHanSansCN-Medium, SourceHanSansCN;
+        font-weight: 500;
+        color: #C5CCD3;
+    }
+}
