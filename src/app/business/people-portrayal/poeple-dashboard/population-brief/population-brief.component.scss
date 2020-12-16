@@ -1,7 +1,8 @@
 .pancel {
     width: 100%;
     height: 100%;
-    padding-top: 46px;
+    padding: 46px 20px 0px 50px;
+    //padding-top: 46px;
     .chartcontainer {
         margin-left: auto;
         margin-right: auto;
@@ -53,7 +54,6 @@
     .detailData {
         height: 118px;
         width: fit-content;
-        margin-left: 81px;
         position: relative;
         margin-top: 23px;
         .dataCard {
