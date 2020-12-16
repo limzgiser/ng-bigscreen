@@ -7,3 +7,4 @@ export * from './migration/migration.component';
 export * from './circle-progress-graph/circle-progress-graph.component';
 export * from './ring-chart/ring-chart.component';
 export * from './line-area-chart/line-area-chart.component';
+export * from './bar-backtoback/bar-backtoback.component';

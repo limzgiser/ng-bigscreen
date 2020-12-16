@@ -22,7 +22,8 @@ import {
    ClildrenNavComponent,
    ChartTitleComponent,
    RingChartComponent,
-   LineAreaChartComponent
+   LineAreaChartComponent,
+   BarBacktobackComponent
   } from './components';
 import { NzTreeModule } from 'ng-zorro-antd/tree';
 
@@ -61,7 +62,8 @@ const selfcomms = [
    MigrationComponent,
    CircleProgressGraphComponent,
    RingChartComponent,
-   LineAreaChartComponent
+   LineAreaChartComponent,
+   BarBacktobackComponent
   ];
 
 
