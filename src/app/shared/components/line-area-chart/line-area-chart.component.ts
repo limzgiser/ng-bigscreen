@@ -17,6 +17,20 @@ export class LineAreaChartComponent implements OnInit {
     chart.tooltip({
       showCrosshairs: true,
     });
+    chart.axis('year',{
+      label:{
+        style:{
+          fill:'#ffffff',
+          fontSize:16
+        }
+    }});
+    chart.axis('value',{
+      label:{
+        style:{
+            fill:'#ffffff',
+            fontSize:16
+        }
+    }});
     chart.line().position('year*value').shape('smooth').color('#AB720B');
     chart.area().position('year*value').shape('smooth').color('l(270) 0:rgba(0,0,0,0) 1:rgba(143, 95, 7, 1)');
     chart.render();

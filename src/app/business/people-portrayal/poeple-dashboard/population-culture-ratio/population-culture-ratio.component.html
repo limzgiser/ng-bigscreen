@@ -1,5 +1,7 @@
 <div class="pancel">
-    <app-chart-title [chartTitle]="'人口总览'" [unit]="'单位:百分比'"></app-chart-title>
+    <div class="titlecontianer">
+        <app-chart-title [chartTitle]="'人口分化程度分析'" [unit]="'单位:百分比'"></app-chart-title>
+    </div>
     <div class="groupchartcontainer">
         <ng-container *ngFor="let item of tmpData">
             <div class="singlechartcontianer">

@@ -277,7 +277,9 @@ export class MigrationComponent implements OnInit {
               emphasis: {
                   areaColor: '#0b1c2d'
               }
-          }
+          },
+          //缩放比例
+          zoom:1.25
       },
       series: series
   };
