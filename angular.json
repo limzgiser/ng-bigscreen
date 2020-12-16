@@ -39,9 +39,6 @@
 
                         ],
                         "scripts": [
-                            "node_modules/@antv/g2/dist/g2.min.js",
-                            "src/assets/libs/lodash.js",
-                            "node_modules/cityfun-gl/dist/cityfun.min.js"
 
                         ]
                     },
