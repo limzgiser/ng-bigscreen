@@ -32,7 +32,7 @@ export class LineAreaChartComponent implements OnInit {
         }
     }});
     chart.line().position('year*value').shape('smooth').color('#AB720B');
-    chart.area().position('year*value').shape('smooth').color('l(270) 0:rgba(0,0,0,0) 1:rgba(143, 95, 7, 1)');
+    chart.area().position('year*value').shape('smooth').color('l(270) 0:rgba(0,0,0,0) 0.7:rgba(143, 95, 7, 1)');
     chart.render();
   }
 }

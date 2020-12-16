@@ -238,7 +238,8 @@ export class MigrationComponent implements OnInit {
   });
   
   let option:any = {
-      backgroundColor: '#080a20',
+      //为符合设计
+      //backgroundColor: '#080a20',
       title: false,
       //  {
       //     text: '模拟迁徙',
