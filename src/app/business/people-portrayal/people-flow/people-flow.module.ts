@@ -5,6 +5,8 @@ import {IncomingOutofJsComponent} from './incoming-outof-js/incoming-outof-js.co
 import {IncomingInJsComponent} from './incoming-in-js/incoming-in-js.component';
 import {PeopleFlowAgeComponent} from './people-flow-age/people-flow-age.component';
 import {PeopleFlowCultureComponent} from './people-flow-culture/people-flow-culture.component';
+import {PeopleFlowStreetComponent} from './people-flow-street/people-flow-street.component';
+import {PeopleFlowCommunityComponent} from './people-flow-community/people-flow-community.component';
 import { PeopleFlowRoutes } from './people-flow.routing';
 import { CityfunModule } from 'src/app/cityfun/cityfun.module';
 @NgModule({
@@ -16,7 +18,9 @@ import { CityfunModule } from 'src/app/cityfun/cityfun.module';
     IncomingOutofJsComponent,
     IncomingInJsComponent,
     PeopleFlowAgeComponent,
-    PeopleFlowCultureComponent
+    PeopleFlowCultureComponent,
+    PeopleFlowStreetComponent,
+    PeopleFlowCommunityComponent
   ]
 })
 export class PeopleFlowModule { }
