@@ -1,7 +1,12 @@
 <div class="container">
-    <div class="imgcontainer"></div>
-    <div class="textcontainer">
-        <div class="charttitle">{{chartTitle}}</div>
-        <div class="unittitle" *ngIf="unit">{{unit}}</div>
+    <div class="lefttitle">
+        <div class="titlecontianer">
+            <div class="textcontainer">{{chartTitle}}</div>
+            <div class="baselinebar"></div>
+        </div>
     </div>
+    <div class="rightlighteffect">
+        <img src="./assets/img/component-img/shared/titlerighteffect.png" />
+    </div>
+    <div class="unittitle" *ngIf="unit">{{unit}}</div>
 </div>

@@ -6,6 +6,8 @@ import {PopulationBriefComponent} from './population-brief/population-brief.comp
 import {PopulationSexRatioComponent} from './population-sex-ratio/population-sex-ratio.component';
 import {MobilePeopleComingComponent} from './mobile-people-coming/mobile-people-coming.component';
 import {PopulationCultureRatioComponent} from './population-culture-ratio/population-culture-ratio.component';
+import {MinorityNationalityComponent} from './minority-nationality/minority-nationality.component';
+import {PopulationChangeComponent} from './population-change/population-change.component';
 import { CityfunModule } from 'src/app/cityfun/cityfun.module';
 @NgModule({
   imports: [
@@ -16,7 +18,9 @@ import { CityfunModule } from 'src/app/cityfun/cityfun.module';
     PopulationBriefComponent,
     PopulationSexRatioComponent,
     MobilePeopleComingComponent,
-    PopulationCultureRatioComponent
+    PopulationCultureRatioComponent,
+    MinorityNationalityComponent,
+    PopulationChangeComponent
   ]
 })
 export class PoepleDashboardModule { }

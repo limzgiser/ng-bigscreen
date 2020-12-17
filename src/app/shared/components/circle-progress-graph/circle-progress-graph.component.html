@@ -1,4 +1,5 @@
 <div class="pancel">
-    <div class="chartbox"></div>
-    <div class="chartname">研究生</div>
+    <div class="chartbox" ngxG2 (configure)="configureChart($event)">
+    </div>
+    <div class="chartname">{{chartdata?.type}}</div>
 </div>

@@ -2,32 +2,51 @@
     width: 100%;
     height: 100%;
     box-sizing: border-box;
-    // border: 3px solid red ;
-    pointer-events: none;
+    //TODO 开发样式 暂时省略
+    //pointer-events: none;
     display: grid;
-    //grid-template-columns: 1fr 2fr 1fr;
-    //grid-template-rows: 1fr 1fr 1fr;
-    grid-template-columns: 0.22fr 0.56fr 0.22fr;
-    .left-pancel {
+    grid-template-columns: 730px 1900px 730px;
+    .gridpancel {
+        //height: 100%;
         background: linear-gradient(90deg, rgba(0, 0, 0, 0.7) 0%, rgba(6, 7, 10, 0.65) 69%, rgba(8, 10, 15, 0.2) 100%);
         opacity: 0.8;
-    }
-    .right-pancel {
-        background: linear-gradient(90deg, rgba(8, 10, 15, 0.2) 0%, rgba(6, 7, 10, 0.65) 31%, rgba(0, 0, 0, 0.7) 100%);
-        opacity: 0.8;
-    }
-    div {
-        //border: 1px solid red;
-        .chart-grid {
-            width: 730px;
-            height: 100%;
-            display: grid;
-            grid-template-rows: 1fr 1fr 1fr;
-            .chartcontainer {
-                border: 1px solid yellow;
-            }
+        width: 730px;
+        height: 100%;
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr;
+        .staticcontainer {
+            // height: 100%;
+            //border: 1px solid yellow;
         }
     }
+    // .right-pancel {
+    //     //height: 100%;
+    //     background: linear-gradient(90deg, rgba(8, 10, 15, 0.2) 0%, rgba(6, 7, 10, 0.65) 31%, rgba(0, 0, 0, 0.7) 100%);
+    //     opacity: 0.8;
+    //     display: grid;
+    //     // grid-template-rows: 1fr 1fr 1fr;
+    //     height: 100%;
+    //     width: 730px;
+    //     .staticcontainer {
+    //         border: 1px solid yellow;
+    //     }
+    // }
+    .center-pancel {
+        width: 100%;
+        height: 100%;
+    }
+    //影响页面大小 
+    // div {
+    //     .chart-grid {
+    //         width: 730px;
+    //         height: 100%;
+    //         display: grid;
+    //         grid-template-rows: 1fr 1fr 1fr;
+    //         .chartcontainer {
+    //             border: 1px solid yellow;
+    //         }
+    //     }
+    // }
     // div {
     //     border: 1px solid red ;;
     //     padding: 20px;

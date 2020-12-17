@@ -1,0 +1,66 @@
+.pancel {
+    width: 615px;
+    height: 240px;
+    position: relative;
+    .g2chartcontainer {
+        float: left;
+        width: 45%;
+        height: 100%;
+    }
+    .customizeLabel {
+        //background-color: greenyellow;
+        margin-top: 16px;
+        float: left;
+        width: 55%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        .itemlabel {
+            margin-left: 10px;
+            height: 32px;
+            width: fit-content;
+            //width: 121px;
+            position: relative;
+            .labelmarker {
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 10px;
+                padding-top: 7px;
+                width: 24px;
+                height: 24px;
+                float: left;
+                background: rgba(143, 197, 34, 0.2);
+                .labelmarkercircle {
+                    margin-left: auto;
+                    margin-right: auto;
+                    //margin-top: 7px;
+                    width: 10px;
+                    height: 10px;
+                    background: #8FC522;
+                    border-radius: 50%;
+                }
+            }
+            .labelname {
+                margin-top: 4px;
+                float: left;
+                margin-left: 7px;
+                height: 30px;
+                font-size: 22px;
+                font-family: PingFangSC-Semibold, PingFang SC;
+                font-weight: 600;
+                color: #FFFFFF;
+            }
+            .labelvalue {
+                float: left;
+                height: 32px;
+                margin-left: 28px;
+                font-size: 28px;
+                font-family: DINAlternate-Bold, DINAlternate;
+                font-weight: bold;
+                color: #76F1FB;
+                letter-spacing: 1px;
+            }
+        }
+    }
+}

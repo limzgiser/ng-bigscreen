@@ -1,0 +1,80 @@
+#card-panel {
+    width: 100%;
+    height: 100%;
+    // height: calc(100% - 120px);
+    overflow: auto;
+}
+
+.panel-value {
+    color: #ffffff;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    .item {
+        display: flex;
+    }
+}
+
+.res-listitem {
+    // flex: 1;
+    margin-top: 15px;
+    color: #ffffff;
+    display: flex;
+    justify-content: left;
+    //justify-content: heightspace-around;
+    flex-direction: column;
+    .index-title {
+        display: flex;
+        align-items: center;
+        font-size: 24px;
+        justify-content: space-between;
+        //   margin-bottom:5px;
+        .res-item-index {
+            width: 70px;
+            height: 25px;
+            display: flex;
+            justify-content: center;
+            //align-items: center;
+            font-size: 28px;
+            font-weight: bold;
+            font-style: italic;
+            font-family: Arial-BoldItalicMT, Arial;
+            line-height: 28px;
+            background-image: url('~/assets/img/component-img/shared/event-list.png');
+        }
+        .res-item-name {
+            margin-left: -200px;
+            width: 280px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            font-size: 24px;
+            font-family: 'Regular';
+        }
+        .res-item-name-right {
+            right: 0px;
+            width: 180px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    }
+    .value-contaner {
+        width: 100%;
+        height: 16px;
+        display: flex;
+        background: #20364E;
+        .res-item-count {
+            font-size: 24px;
+            font-weight: bold;
+            /* height: 16px; */
+            height: 16px;
+            //  background: -webkit-gradient(linear, left top, right top, from(#2481da), to(#83c1ed));
+            //background: #38D898;
+            padding-left: 15px;
+            line-height: 26px;
+            font-family: Bebas Neue Regular;
+        }
+    }
+}

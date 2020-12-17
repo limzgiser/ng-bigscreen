@@ -1,10 +1,11 @@
 .pancel {
     width: 100%;
-    height: calc(100% - 46px);
+    height: 100%;
+    padding: 0px 0px 0px 50px;
     .g2chartcontainer {
-        width: 584px;
-        height: 327px;
-        margin-left: 86px;
-        margin-top: 38px;
+        width: fit-content;
+        height: fit-content;
+        margin-left: 36px;
+        margin-top: 20px;
     }
 }
