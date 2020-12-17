@@ -7,6 +7,7 @@ import { Component, OnInit,Input } from '@angular/core';
 })
 export class LineAreaChartComponent implements OnInit {
   @Input() chartData;
+  @Input() chartColor='rgba(143, 95, 7, 1)';
   constructor() { }
 
   ngOnInit() {
@@ -32,8 +33,8 @@ export class LineAreaChartComponent implements OnInit {
         }
     }});
     chart.padding=[20,20,80,50];
-    chart.line().position('year*value').shape('smooth').color('#AB720B');
-    chart.area().position('year*value').shape('smooth').color('l(270) 0:rgba(0,0,0,0) 0.7:rgba(143, 95, 7, 1)');
+    chart.line().position('year*value').shape('smooth').color(this.chartColor);
+    chart.area().position('year*value').shape('smooth').color('l(270) 0:rgba(0,0,0,0) 0.7:'+this.chartColor);
     chart.render();
   }
 }

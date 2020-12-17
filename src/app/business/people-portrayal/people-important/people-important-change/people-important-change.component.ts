@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class PeopleImportantChangeComponent implements OnInit {
 
   constructor() { }
-
+  mchartColor='#03D5A3'
   ngOnInit() {
   }
   data=[
