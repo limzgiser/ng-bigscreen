@@ -1,32 +1,20 @@
 <div class="container">
   <app-chart-title [chartTitle]="'行政区划'" [unit]=""></app-chart-title>
-  <div
-    class="area-select"
-    (mouseenter)="areaListMouseenter($event)"
-    (mouseleave)="areaListMouseleave($event)"
-  >
+  <div class="area-select" (mouseenter)="areaListMouseenter($event)" (mouseleave)="areaListMouseleave($event)">
     <span> 当前区域：{{ selectNode?.geo_name || "常熟市" }} </span>
     <i *ngIf="showList" nz-icon nzType="down" nzTheme="outline"></i>
     <i *ngIf="!showList" nz-icon nzType="up" nzTheme="outline"></i>
-    <div class="area-content">
+    <div class="area-content" *ngIf="labelList">
       <app-cf-scroll class="area-list">
         <div class="content">
           <div class="item" *ngFor="let item of labelList">
             <div class="left">
-              <span
-                class="f-name"
-                [class.select]="selectNode?.geo_name == item.geo_name"
-                (click)="fnodeClick(item,1)"
-                >{{ item?.geo_name }}</span
-              >
+              <span class="f-name" [class.select]="selectNode?.geo_name == item.geo_name"
+                (click)="fnodeClick(item, 1)">{{ item?.geo_name }}</span>
             </div>
             <div class="right" *ngIf="item?.geo_name !== '常熟市'">
-              <div
-                class="children-item"
-                [class.select]="selectNode?.geo_name == citem.geo_name"
-                *ngFor="let citem of item?.children"
-                (click)="cnodeClick(citem,2)"
-              >
+              <div class="children-item" [class.select]="selectNode?.geo_name == citem.geo_name"
+                *ngFor="let citem of item?.children; " (click)="cnodeClick(citem, 2)">
                 {{ citem?.geo_name }}
               </div>
             </div>
@@ -44,7 +32,7 @@
       </div>
     </div>
   </div>
-  <app-cf-scroll class="list">
+  <app-cf-scroll class="list" *ngIf="listData_GeoJSON">
     <div class="content">
       <div class="item" *ngFor="let item of listData_GeoJSON?.features" (click)="listItemClick(item)">
         <div class="left">{{ item?.properties.geo_name }}</div>
