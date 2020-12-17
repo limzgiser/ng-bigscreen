@@ -88,7 +88,7 @@ export class RingChartComponent implements OnInit {
         </div>
       </div>`,
       offsetX:-85,
-      offsetY:15
+      offsetY:25
     })
     chart.interaction('element-single-selected');
     chart.render();

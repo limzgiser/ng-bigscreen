@@ -8,3 +8,5 @@ export * from './circle-progress-graph/circle-progress-graph.component';
 export * from './ring-chart/ring-chart.component';
 export * from './line-area-chart/line-area-chart.component';
 export * from './bar-backtoback/bar-backtoback.component';
+export * from './bar-vertical/bar-vertical.component';
+export * from './bar-horizontal/bar-horizontal.component';
