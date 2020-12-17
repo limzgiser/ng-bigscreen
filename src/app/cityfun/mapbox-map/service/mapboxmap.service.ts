@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { CfhttpService } from 'src/app/services/cfhttp.service';
-import   cityfun  from 'cityfun-gl';
+import   cityfun  from 'cityfun-gl-4490';
+
 @Injectable({
   providedIn: 'root',
 })

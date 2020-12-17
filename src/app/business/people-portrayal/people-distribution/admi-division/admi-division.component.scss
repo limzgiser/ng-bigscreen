@@ -1,3 +1,4 @@
+
 .container {
   width: 730px;
   height: 100%;
@@ -33,7 +34,7 @@
       cursor: default;
       z-index: 100;
       overflow: hidden;
-      visibility:hidden;
+      visibility: hidden;
     }
     .area-list {
       width: 100%;
@@ -155,5 +156,34 @@
         }
       }
     }
+  }
+}
+.crumbs {
+  position: absolute;
+  left: 770px;
+  top: 40px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #1cc9cb;
+  display: flex;
+  pointer-events: all;
+  .item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: skewX(-50deg);
+    margin-right: 15px;
+    padding: 0 15px;
+    height: 32px;
+    border: 1px solid #306a76;
+    cursor: pointer;
+    .label {
+      transform: skewX(50deg);
+    }
+  }
+
+  .item:last-child {
+    background: #12a5a7;
+    color: #080c17;
   }
 }

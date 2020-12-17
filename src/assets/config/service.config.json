@@ -7,7 +7,7 @@
         {
             "id": "base.map",
             "des": "底图样式",
-            "url": "http://webres.cityfun.com.cn/csmap/csmap_blue/3857/map_blue.json"
+            "url": "http://webres.cityfun.com.cn/csmap/csmap_blue/4326/map_blue.json"
         },
         {
             "id": "menu.config",

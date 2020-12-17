@@ -10,7 +10,7 @@ import {
   layerids,
   default_fill_color,
 } from './styles/style';
-import { maxBy, minBy, cloneDeep } from 'lodash';
+import { maxBy, minBy, cloneDeep, sortBy } from 'lodash';
 import { first, min } from 'rxjs/operators';
 import { group } from '@angular/animations';
 @Component({
@@ -23,16 +23,19 @@ export class AdmiDivisionComponent implements OnInit {
     private cfhttpService: CfhttpService,
     private mapboxmapService: MapboxmapService
   ) {}
-  @Input() labelList = null
-  xhrs = {};
-  crumbsData = {
-    level_1: {
-      geo_code: '320581000',
+  @Input() labelList = null;
+  mapEvent = {};
+  xhrs = {}; // 网络请求订阅
+  crumbArr = null; // 面包屑数组
+  // 面包屑 数据集
+  crumbs = {
+    'level-0': {
       geo_name: '常熟市',
       groupid: 0,
+      geo_code: '320581000',
     },
   };
-
+  // 当前选中节点
   selectNode = {
     geo_name: '常熟市',
     groupid: null,
@@ -62,6 +65,7 @@ export class AdmiDivisionComponent implements OnInit {
 
   mapboxglmap = null;
   ngOnInit() {
+    this.updateCrumbs('常熟市', '320581000', 0);
     this.mapboxmapService.init().then((mapboxglmap: any) => {
       this.mapboxglmap = mapboxglmap;
       if (
@@ -85,6 +89,7 @@ export class AdmiDivisionComponent implements OnInit {
     if (geo_name == '常熟市') {
       gType = 0;
     }
+    this.updateCrumbs(geo_name, geo_code, gType);
     this.selectNode.geo_name = geo_name;
     this.getLevel1GeoJSONByCode(geo_code, gType);
     // this.selectNode = {
@@ -96,10 +101,12 @@ export class AdmiDivisionComponent implements OnInit {
   /**
    * 二级地名点击查询
    */
-  cnodeClick(item, gType) {
+  cnodeClick(item, gType, fnode?) {
     let { geo_code, geo_name } = item;
     this.selectNode.geo_name = geo_name;
     this.getLevel1GeoJSONByCode(geo_code, gType);
+    this.updateCrumbs(fnode.geo_name, fnode.geo_code, gType - 1);
+    this.updateCrumbs(geo_name, geo_code, gType);
     // this.selectNode = {
     //   geo_name: geo_name,
     //   groupid: gType,
@@ -110,9 +117,9 @@ export class AdmiDivisionComponent implements OnInit {
    * 列表项点击
    */
   listItemClick(item) {
-    //  console.log(item);
     let { groupid, xzqhbm, geo_name } = item.properties;
     if (groupid <= 3) {
+      this.updateCrumbs(geo_name, xzqhbm, groupid);
       this.getLevel1GeoJSONByCode(xzqhbm, groupid);
       this.selectNode.geo_name = geo_name;
     }
@@ -141,9 +148,40 @@ export class AdmiDivisionComponent implements OnInit {
   }
 
   mapInit() {
+    this.bindMapEvent();
     this.getLevel1GeoJSONByCode('320581000', 0); // 常熟市区
-  }
 
+    this.mapboxglmap.on('click','region_fill_0', e=>{
+      alert(11111111111111111111);
+     });
+  }
+  /**
+   * 绑定地图事件
+   */
+  bindMapEvent() {
+    const self = this;
+    let levels = [0, 1, 2, 3];
+    for (let key of levels) {
+      let eventLayerId = region_fill.id + `_${key}`;
+      if (this.mapEvent[eventLayerId]) {
+        this.mapboxglmap.off('click', this.mapEvent[eventLayerId]);
+      }
+      this.mapEvent[eventLayerId] = function (e) {
+         console.log(e.features);
+      };
+      // console.log(eventLayerId)
+      // this.mapboxglmap.on('click','region_fill_0', e=>{
+      //  alert(123);
+      // });
+    }
+    setTimeout(()=>{
+      console.log(this.mapboxglmap.getStyle().layers);
+    },2000)
+
+  }
+  /**
+   * 处理数据、根据人口设计分层设色级别
+   */
   setGeoLevel(geojson) {
     if (!geojson) {
       return;
@@ -151,7 +189,6 @@ export class AdmiDivisionComponent implements OnInit {
     if (!geojson.features || geojson.features.length < 0) {
       return;
     }
-
     let maxItem = maxBy(geojson.features, (item) => {
       return Number(item.properties.stat_inds_val);
     });
@@ -174,6 +211,11 @@ export class AdmiDivisionComponent implements OnInit {
     return geojson;
   }
 
+  /**
+   * 渲染数据
+   * @param xzcode
+   * @param groupid
+   */
   renderGeoJsonData(xzcode, groupid) {
     if (this.selectNode.groupid === groupid) {
       // 直接定位，不绘制
@@ -205,6 +247,9 @@ export class AdmiDivisionComponent implements OnInit {
     // 移除高于当前级别的图层
     this.removeTopLevelLayer(groupid);
   }
+  /**
+   * 添加图层
+   */
   renderLayer(groupid) {
     let fill = cloneDeep(region_fill);
     let border = cloneDeep(region_border);
@@ -237,7 +282,7 @@ export class AdmiDivisionComponent implements OnInit {
       this.mapboxmapService.removeLayerByIds(ids);
     }
   }
-  // 灰掉状态
+  // 地图图层灰掉状态
   setUnActiveLayerStyle(groupid) {
     let fill = cloneDeep(region_fill);
     let border = cloneDeep(region_border);
@@ -258,7 +303,7 @@ export class AdmiDivisionComponent implements OnInit {
       }
     }
   }
-  // 恢复高亮
+  // 地图图层恢复高亮
   setActiveTLayerStyle(groupid) {
     let fill = cloneDeep(region_fill);
     let border = cloneDeep(region_border);
@@ -277,9 +322,46 @@ export class AdmiDivisionComponent implements OnInit {
       this.mapboxglmap.setPaintProperty(borderid, 'line-color', '#fff');
     }
   }
+
+  /**
+   * 更新面包屑
+   */
+  updateCrumbs(gname, gcode, gtype) {
+    this.crumbs['level-' + gtype] = {
+      geo_name: gname,
+      groupid: gtype,
+      geo_code: gcode,
+    };
+    let crumbsArr = [];
+    Object.keys(this.crumbs).forEach((key) => {
+      let item = this.crumbs[key];
+      if (item.groupid <= gtype) {
+        crumbsArr.push(item);
+      }
+    });
+    sortBy(crumbsArr, (item) => {
+      item.groupid;
+    });
+    this.crumbArr = crumbsArr;
+  }
+  /**
+   * 面包屑点击
+   */
+  crumbsClick(item) {
+    let { geo_name, groupid, geo_code } = item;
+    this.getLevel1GeoJSONByCode(geo_code, groupid);
+    this.updateCrumbs(geo_name, geo_code, groupid);
+  }
+  /**
+   * 移入标题、下来标注
+   */
   areaListMouseenter($event) {
     this.showList = true;
   }
+  /**
+   * 移除隐藏标注
+   * @param $event
+   */
   areaListMouseleave($event) {
     this.showList = false;
   }
@@ -302,6 +384,5 @@ export class AdmiDivisionComponent implements OnInit {
         this.mapboxglmap.removeLayer(layer.id);
       }
     });
-    console.log(this.mapboxglmap.getStyle().layers);
   }
 }

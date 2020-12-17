@@ -1,48 +1,71 @@
-<div class="container">
-  <app-chart-title [chartTitle]="'行政区划'" [unit]=""></app-chart-title>
-  <div class="area-select" (mouseenter)="areaListMouseenter($event)" (mouseleave)="areaListMouseleave($event)">
-    <span> 当前区域：{{ selectNode?.geo_name || "常熟市" }} </span>
-    <i *ngIf="showList" nz-icon nzType="down" nzTheme="outline"></i>
-    <i *ngIf="!showList" nz-icon nzType="up" nzTheme="outline"></i>
-    <div class="area-content" *ngIf="labelList">
-      <app-cf-scroll class="area-list">
-        <div class="content">
-          <div class="item" *ngFor="let item of labelList">
-            <div class="left">
-              <span class="f-name" [class.select]="selectNode?.geo_name == item.geo_name"
-                (click)="fnodeClick(item, 1)">{{ item?.geo_name }}</span>
-            </div>
-            <div class="right" *ngIf="item?.geo_name !== '常熟市'">
-              <div class="children-item" [class.select]="selectNode?.geo_name == citem.geo_name"
-                *ngFor="let citem of item?.children; " (click)="cnodeClick(citem, 2)">
-                {{ citem?.geo_name }}
+<div id="main">
+  <div class="container">
+    <app-chart-title [chartTitle]="'行政区划'" [unit]=""></app-chart-title>
+    <div
+      class="area-select"
+      (mouseenter)="areaListMouseenter($event)"
+      (mouseleave)="areaListMouseleave($event)"
+    >
+      <span> 当前区域：{{ selectNode?.geo_name || "常熟市" }} </span>
+      <i *ngIf="showList" nz-icon nzType="down" nzTheme="outline"></i>
+      <i *ngIf="!showList" nz-icon nzType="up" nzTheme="outline"></i>
+      <div class="area-content" *ngIf="labelList">
+        <app-cf-scroll class="area-list">
+          <div class="content">
+            <div class="item" *ngFor="let item of labelList">
+              <div class="left">
+                <span
+                  class="f-name"
+                  [class.select]="selectNode?.geo_name == item.geo_name"
+                  (click)="fnodeClick(item, 1)"
+                  >{{ item?.geo_name }}</span
+                >
+              </div>
+              <div class="right" *ngIf="item?.geo_name !== '常熟市'">
+                <div
+                  class="children-item"
+                  [class.select]="selectNode?.geo_name == citem.geo_name"
+                  *ngFor="let citem of item?.children"
+                  (click)="cnodeClick(citem, 2,item)"
+                >
+                  {{ citem?.geo_name }}
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </app-cf-scroll>
-    </div>
-  </div>
-  <div class="index-statistics">
-    <div class="item" *ngFor="let item of indexStatistics">
-      <div class="top">{{ item.label }}</div>
-      <div class="bottom">
-        <span class="value">{{ item.value }}</span>
-        <span class="unit">{{ item.unit }}</span>
+        </app-cf-scroll>
       </div>
     </div>
-  </div>
-  <app-cf-scroll class="list" *ngIf="listData_GeoJSON">
-    <div class="content">
-      <div class="item" *ngFor="let item of listData_GeoJSON?.features" (click)="listItemClick(item)">
-        <div class="left">{{ item?.properties.geo_name }}</div>
-        <div class="right">
-          <div class="value">{{ item?.properties.stat_inds_val }}</div>
-          <div class="icon">
-            <i nz-icon nzType="right" nzTheme="outline"></i>
+    <div class="index-statistics">
+      <div class="item" *ngFor="let item of indexStatistics">
+        <div class="top">{{ item.label }}</div>
+        <div class="bottom">
+          <span class="value">{{ item.value }}</span>
+          <span class="unit">{{ item.unit }}</span>
+        </div>
+      </div>
+    </div>
+    <app-cf-scroll class="list" *ngIf="listData_GeoJSON">
+      <div class="content">
+        <div
+          class="item"
+          *ngFor="let item of listData_GeoJSON?.features"
+          (click)="listItemClick(item)"
+        >
+          <div class="left">{{ item?.properties.geo_name }}</div>
+          <div class="right">
+            <div class="value">{{ item?.properties.stat_inds_val }}</div>
+            <div class="icon">
+              <i nz-icon nzType="right" nzTheme="outline"></i>
+            </div>
           </div>
         </div>
       </div>
+    </app-cf-scroll>
+  </div>
+  <div class="crumbs">
+    <div class="item" *ngFor="let item of crumbArr" (click) = "crumbsClick(item)">
+     <div class="label">{{ item?.geo_name }}</div>  
     </div>
-  </app-cf-scroll>
+  </div>
 </div>
