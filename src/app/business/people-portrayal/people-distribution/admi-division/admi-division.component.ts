@@ -156,6 +156,8 @@ export class AdmiDivisionComponent implements OnInit {
    */
   bindMapEvent() {
     const self = this;
+ 
+
 
     let addLevelLayer = function (e) {
       if (e.features) {
@@ -166,42 +168,26 @@ export class AdmiDivisionComponent implements OnInit {
         self.selectNode.geo_name = geo_name;
       }
     };
-    this.mapEvent['region_fill_0'] = function (e) {
-      if (e.defaultPrevented) {
-        return;
+    let levelLen = 3;
+    for (let i = 0; i < levelLen; i++) {
+      if (this.mapEvent[`${region_fill.id}_${i}`] ) {
+        this.mapboxglmap.off('click', this.mapEvent[`${region_fill.id}_${i}`]);
       }
-      e.preventDefault();
-      addLevelLayer(e);
-    };
-    this.mapEvent['region_fill_1'] = function (e) {
-      if (e.defaultPrevented) {
-        return;
-      }
-      e.preventDefault();
-      addLevelLayer(e);
-    };
-    this.mapEvent['region_fill_2'] = function (e) {
-      if (e.defaultPrevented) {
-        return;
-      }
-      e.preventDefault();
-      addLevelLayer(e);
-    };
-    this.mapboxglmap.on(
-      'click',
-      'region_fill_2',
-      this.mapEvent['region_fill_2']
-    );
-    this.mapboxglmap.on(
-      'click',
-      'region_fill_1',
-      this.mapEvent['region_fill_1']
-    );
-    this.mapboxglmap.on(
-      'click',
-      'region_fill_0',
-      this.mapEvent['region_fill_0']
-    );
+      this.mapEvent[`${region_fill.id}_${i}`] = function (e) {
+        if (e.defaultPrevented) {
+          return;
+        }
+        e.preventDefault();
+        addLevelLayer(e);
+      };
+    }
+    for (let i = levelLen - 1; i >= 0; i--) {
+      this.mapboxglmap.on(
+        'click',
+        `${region_fill.id}_${i}`,
+        this.mapEvent[`${region_fill.id}_${i}`]
+      );
+    }
   }
   /**
    * 处理数据、根据人口设计分层设色级别
@@ -372,7 +358,9 @@ export class AdmiDivisionComponent implements OnInit {
    * 面包屑点击
    */
   crumbsClick(item) {
+ 
     let { geo_name, groupid, geo_code } = item;
+    this.selectNode.geo_name = geo_name;
     this.getLevel1GeoJSONByCode(geo_code, groupid);
     this.updateCrumbs(geo_name, geo_code, groupid);
   }
