@@ -31,16 +31,20 @@
         justify-content: space-between;
         //   margin-bottom:5px;
         .res-item-index {
-            width: 16px;
-            // height: 26px;
+            width: 70px;
+            height: 25px;
             display: flex;
             justify-content: center;
-            align-items: center;
-            font-size: 24px;
+            //align-items: center;
+            font-size: 28px;
             font-weight: bold;
+            font-style: italic;
+            font-family: Arial-BoldItalicMT, Arial;
+            line-height: 28px;
+            background-image: url('~/assets/img/component-img/shared/event-list.png');
         }
         .res-item-name {
-            margin-left: 10px;
+            margin-left: -200px;
             width: 280px;
             overflow: hidden;
             text-overflow: ellipsis;
