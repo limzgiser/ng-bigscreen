@@ -10,3 +10,4 @@ export * from './line-area-chart/line-area-chart.component';
 export * from './bar-backtoback/bar-backtoback.component';
 export * from './bar-vertical/bar-vertical.component';
 export * from './bar-horizontal/bar-horizontal.component';
+export * from './event-list-bar/event-list-bar.component';

@@ -1,0 +1,14 @@
+<div id="card-panel">
+    <div class="panel-value">
+        <div class='res-listitem' *ngFor='let item of data;let i=index;'>
+            <div class="index-title">
+                <span title='{{item.name}}' class='res-item-index'>No.{{i+1}}</span>
+                <span title='{{item.name}}' class='res-item-name'>{{item.name}}</span>
+                <span title='{{item.name}}'>{{item.value}}</span>
+            </div>
+            <div class="value-contaner">
+                <span class='res-item-count' title="{{item?.value}}" [style.width.px]="item.width" [style.background]="barColor"></span>
+            </div>
+        </div>
+    </div>
+</div>
