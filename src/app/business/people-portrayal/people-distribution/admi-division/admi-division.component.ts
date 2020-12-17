@@ -150,34 +150,58 @@ export class AdmiDivisionComponent implements OnInit {
   mapInit() {
     this.bindMapEvent();
     this.getLevel1GeoJSONByCode('320581000', 0); // 常熟市区
-
-    this.mapboxglmap.on('click','region_fill_0', e=>{
-      alert(11111111111111111111);
-     });
   }
   /**
    * 绑定地图事件
    */
   bindMapEvent() {
     const self = this;
-    let levels = [0, 1, 2, 3];
-    for (let key of levels) {
-      let eventLayerId = region_fill.id + `_${key}`;
-      if (this.mapEvent[eventLayerId]) {
-        this.mapboxglmap.off('click', this.mapEvent[eventLayerId]);
-      }
-      this.mapEvent[eventLayerId] = function (e) {
-         console.log(e.features);
-      };
-      // console.log(eventLayerId)
-      // this.mapboxglmap.on('click','region_fill_0', e=>{
-      //  alert(123);
-      // });
-    }
-    setTimeout(()=>{
-      console.log(this.mapboxglmap.getStyle().layers);
-    },2000)
 
+    let addLevelLayer = function (e) {
+      if (e.features) {
+        let { geometry, properties } = e.features[0];
+        let { geo_name, xzqhbm, groupid } = properties;
+        self.updateCrumbs(geo_name, xzqhbm, groupid);
+        self.getLevel1GeoJSONByCode(xzqhbm, groupid);
+        self.selectNode.geo_name = geo_name;
+      }
+    };
+    this.mapEvent['region_fill_0'] = function (e) {
+      if (e.defaultPrevented) {
+        return;
+      }
+      e.preventDefault();
+      addLevelLayer(e);
+    };
+    this.mapEvent['region_fill_1'] = function (e) {
+      if (e.defaultPrevented) {
+        return;
+      }
+      e.preventDefault();
+      addLevelLayer(e);
+    };
+    this.mapEvent['region_fill_2'] = function (e) {
+      if (e.defaultPrevented) {
+        return;
+      }
+      e.preventDefault();
+      addLevelLayer(e);
+    };
+    this.mapboxglmap.on(
+      'click',
+      'region_fill_2',
+      this.mapEvent['region_fill_2']
+    );
+    this.mapboxglmap.on(
+      'click',
+      'region_fill_1',
+      this.mapEvent['region_fill_1']
+    );
+    this.mapboxglmap.on(
+      'click',
+      'region_fill_0',
+      this.mapEvent['region_fill_0']
+    );
   }
   /**
    * 处理数据、根据人口设计分层设色级别
