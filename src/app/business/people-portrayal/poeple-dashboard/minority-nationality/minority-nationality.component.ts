@@ -8,11 +8,11 @@ import { Component, OnInit } from '@angular/core';
 export class MinorityNationalityComponent implements OnInit {
   data=[
     {
-    "type":"回",
+    "type":"回族",
     "value":5386
     },
     {
-    "type":"苗",
+    "type":"苗族",
     "value":4378
     },
     {
@@ -20,15 +20,15 @@ export class MinorityNationalityComponent implements OnInit {
     "value":4185
     },
     {
-    "type":"彝",
+    "type":"彝族",
     "value":3035
     },
     {
-    "type":"壮",
+    "type":"壮族",
     "value":2644
     },
     {
-    "type":"满",
+    "type":"满族",
     "value":1322
     },
     {
@@ -36,17 +36,17 @@ export class MinorityNationalityComponent implements OnInit {
     "value":1251
     },
     {
-    "type":"侗",
+    "type":"侗族",
     "value":1057
     },
     {
     "type":"布依",
     "value":952
     },
-    {
-    "type":"蒙古",
-    "value":818
-    }
+    // {
+    // "type":"蒙古",
+    // "value":818
+    // }
     ]
   constructor() { }
 

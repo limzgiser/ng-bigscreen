@@ -1,5 +1,5 @@
 import { Component, OnInit,Input } from '@angular/core';
-
+import {BackgroundChartColors,ChartColors} from './ring-chart-colors';
 @Component({
   selector: 'app-ring-chart',
   templateUrl: './ring-chart.component.html',
@@ -7,32 +7,19 @@ import { Component, OnInit,Input } from '@angular/core';
 })
 export class RingChartComponent implements OnInit {
   @Input() chartData;
-  iconColor = [
-    {
-      icon: "#8FC522",
-      iconBackground: "rgba(143,197,34,0.2)",
-    },
-    {
-      icon: "#00AFFF",
-      iconBackground: "rgba(0,175,255,0.2)",
-    },
-    {
-      icon: "#A656D2",
-      iconBackground: "rgba(166,86,210,0.2)",
-    },
-    {
-      icon: "#CD3300",
-      iconBackground: "rgba(205,51,0,0.2)",
-    },
-    {
-      icon: "#FF9043",
-      iconBackground: "rgba(255,144,67,0.2)",
-    },
-  ];
+  @Input() ringChartTitle='';
+  chartColor;
+  totalCount=0;
   constructor() {
    }
 
   ngOnInit() {
+    this.chartData.forEach(element => {
+      element['color']=ChartColors[this.chartData.indexOf(element)];
+      element['background']=BackgroundChartColors[this.chartData.indexOf(element)];
+      this.totalCount+=element.value;
+    });
+    console.log(this.chartData)
   }
   configureChart(chart){
     //需要注册图形
@@ -40,7 +27,7 @@ export class RingChartComponent implements OnInit {
     chart.data(data);
     chart.coordinate('theta',{
       radius: 1,
-      innerRadius: 0.8,
+      innerRadius: 0.92,
     });
     chart
     .interval()
@@ -50,15 +37,59 @@ export class RingChartComponent implements OnInit {
       stroke: 'black',
       lineWidth: 1,
     })  
-    .color('type')
-    //.shape('slice-shape');
-    chart.legend({
-      position: 'right',
-     // custom:true,
-      // item:{
-
-      // }
+    .color('type',ChartColors)
+    chart.legend(false,{
     });
+    chart.annotation().html({
+      html:
+      `<div style="width: 171px;height: 171px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border:linear-gradient(180deg, #0094C6 0%, #05216D 100%) 2px solid;
+      border-radius: 50% ;
+      background: linear-gradient(180deg, #0094C6 0%, #05216D 100%);"> 
+        <div
+        style="width: 169px;
+        height: 169px;
+        background: linear-gradient(0deg,rgba(6, 23, 45, 0.8) 0%,rgba(0, 13, 32, 0.7) 100%);
+        border: 0px solid;
+        border-radius: 50% ;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;">
+          <div>
+            <span style="font-size:36px;
+            max-width:80px;
+            font-family:DINAlternate-Bold,DINAlternate;
+            font-weight:bold;
+            color:rgba(148,239,228,1);
+            line-height:42px;
+            letter-spacing:2px;">${this.totalCount}
+            </span>
+            <span style="font-size:18px;
+              font-family:SourceHanSansSC-Medium,SourceHanSansSC;
+              font-weight:500;
+              color:rgba(148,239,228,1);
+              line-height:27px;
+              letter-spacing:1px;
+              justify-self:flex-end;
+              margin-left:-2px">人
+            </span>
+            <br>
+            <span style='font-size:24px;
+            font-family:SourceHanSansSC-Bold,SourceHanSansSC;
+            font-weight:bold;
+            color:rgba(255,255,255,1);
+            line-height:36px;padding-left: 13px;'>${this.ringChartTitle}
+            </span>
+          </div>
+        </div>
+      </div>`,
+      offsetX:-85,
+      offsetY:15
+    })
     chart.interaction('element-single-selected');
     chart.render();
   }

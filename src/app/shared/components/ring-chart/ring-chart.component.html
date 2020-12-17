@@ -1,1 +1,15 @@
-<div class="g2chartcontainer" ngxG2 (configure)="configureChart($event)"></div>
+<div class="pancel">
+    <div class="g2chartcontainer" ngxG2 (configure)="configureChart($event)"></div>
+    <div class="customizeLabel">
+        <ng-container *ngFor="let item of chartData">
+            <div class="itemlabel">
+                <div class="labelmarker" [ngStyle]="{'background-color':item.background}">
+                    <div class="labelmarkercircle" [ngStyle]="{'background-color':item.color}"></div>
+                </div>
+                <div class="labelname"><span>{{item.type}}</span></div>
+                <div class="labelvalue"><span>{{item.value}}</span></div>
+            </div>
+        </ng-container>
+
+    </div>
+</div>
