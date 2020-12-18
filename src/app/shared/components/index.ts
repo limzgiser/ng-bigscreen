@@ -11,3 +11,4 @@ export * from './bar-backtoback/bar-backtoback.component';
 export * from './bar-vertical/bar-vertical.component';
 export * from './bar-horizontal/bar-horizontal.component';
 export * from './event-list-bar/event-list-bar.component';
+export * from './stastic-card-simpleness/stastic-card-simpleness.component';

@@ -1,10 +1,16 @@
 <div class="container">
   <div class="left">
-    <app-admi-division [labelList]="labelList"></app-admi-division>
+    <app-admi-division [indexStatistics]="indexStatistics" [labelList]="labelList" (regionClick)="regionClick($event)"></app-admi-division>
   </div>
-  <div class="right">
+  <div class="test" (click)="showBuildTabel=!showBuildTabel">
+      楼盘表
+  </div>
+   <div class="right" *ngIf="showBuildTabel==false">
     <app-education-level></app-education-level>
     <app-six-percent></app-six-percent>
     <app-people-migrate></app-people-migrate>
+  </div>
+  <div class="build-table" *ngIf="showBuildTabel==true">
+    <app-building-table></app-building-table>
   </div>
 </div>

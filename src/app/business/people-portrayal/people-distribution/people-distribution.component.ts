@@ -12,9 +12,32 @@ export class PeopleDistributionComponent implements OnInit {
   constructor(private cfhttpService: CfhttpService) {}
 
   geoRegionLevel_01 = null;
+  showBuildTabel = false;
   labelList = [];
+  indexStatistics = [
+    {
+      label: '总人口',
+      value: 3201.31,
+      unit: '万人',
+    },
+    {
+      label: '户籍人口',
+      value: 123.81,
+      unit: '万人',
+    },
+    {
+      label: '总人口',
+      value: 100.31,
+      unit: '万人',
+    },
+  ];
   ngOnInit() {
+    // 新增区划
     this.getRegionPeopGeo();
+  }
+  regionClick(params) {
+    console.log('人口分布钻去查询参数:');
+    console.log(params);
   }
 
   /**

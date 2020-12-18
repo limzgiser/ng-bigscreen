@@ -87,39 +87,19 @@
     }
   }
   .index-statistics {
+    
     height: 120px;
     margin-top: 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    .item {
+    app-stastic-card-simpleness  {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       width: 210px;
       background: #1a2129;
-      .top {
-        color: #fff;
-        font-size: 24px;
-        font-weight: 600;
-        margin-top: 5px;
-      }
-      .bottom {
-        flex: 1;
-        font-family: Bebas Neue Regular;
-        .value {
-          font-size: 40px;
-          font-weight: bold;
-          color: #76f1fb;
-        }
-        .unit {
-          font-size: 20px;
-          font-weight: 600;
-          color: #76f1fb;
-          margin-left: 10px;
-        }
-      }
     }
   }
   .list {

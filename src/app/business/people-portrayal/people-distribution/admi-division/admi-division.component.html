@@ -37,13 +37,15 @@
       </div>
     </div>
     <div class="index-statistics">
-      <div class="item" *ngFor="let item of indexStatistics">
+      <!-- <div class="item">
         <div class="top">{{ item.label }}</div>
         <div class="bottom">
           <span class="value">{{ item.value }}</span>
           <span class="unit">{{ item.unit }}</span>
         </div>
-      </div>
+      </div> -->
+      <app-stastic-card-simpleness  *ngFor="let item of indexStatistics" [data] = item></app-stastic-card-simpleness>
+
     </div>
     <app-cf-scroll class="list" *ngIf="listData_GeoJSON">
       <div class="content">
