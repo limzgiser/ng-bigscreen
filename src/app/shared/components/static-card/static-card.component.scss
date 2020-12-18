@@ -1,0 +1,90 @@
+.dataCardTitle {
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+    font-size: 24px;
+    font-family: PingFangSC-Semibold, PingFang SC;
+    font-weight: 600;
+    color: #FFFFFF;
+    line-height: 33px;
+}
+
+.dataCardData {
+    height: 47px;
+    width: 100%;
+    position: relative;
+    .leftData {
+        float: left;
+        margin-left: 20px;
+        height: 100%;
+        width: fit-content;
+        //TODO 字体样式限制 字号暂时妥协
+        font-size: 34.5px;
+        font-family: DINAlternate-Bold, DINAlternate, Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        color: #76F1FB;
+        line-height: 47px;
+        position: relative;
+        span {
+            float: left;
+        }
+        .dataunit {
+            float: left;
+            width: fit-content;
+            height: 28px;
+            font-size: 20px;
+            font-family: PingFangSC-Semibold, PingFang SC;
+            font-weight: 600;
+            color: #76F1FB;
+            margin-top: 2px;
+        }
+    }
+    .rightData {
+        margin-top: 15px;
+        float: left;
+        margin-left: 20px;
+        width: fit-content;
+        font-size: 16px;
+        font-family: PingFangSC-Semibold, PingFang SC, Arial, Helvetica, sans-serif;
+        font-weight: 600;
+        color: #FFFFFF;
+        position: relative;
+        span {
+            float: left;
+        }
+        .upcondition {
+            margin-top: -2px;
+            margin-left: 3px;
+            float: left;
+            font-size: 18px;
+            font-family: DINAlternate-Bold, DINAlternate;
+            font-weight: bold;
+            line-height: 28px;
+            color: #EF8612;
+            background: linear-gradient(180deg, #FDD100 0%, #FF595B 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .downcondition {
+            margin-top: -2px;
+            margin-left: 3px;
+            float: left;
+            font-size: 18px;
+            font-family: DINAlternate-Bold, DINAlternate;
+            font-weight: bold;
+            line-height: 28px;
+            color: #EF8612;
+            background: linear-gradient(180deg, #00FD8E 0%, #59F7FF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .arrowContianer {
+            width: 12px;
+            height: 14px;
+            float: left;
+            margin-left: 1px;
+            margin-top: 6px;
+        }
+    }
+}
