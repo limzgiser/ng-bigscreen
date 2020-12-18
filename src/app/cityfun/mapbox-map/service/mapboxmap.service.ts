@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { CfhttpService } from 'src/app/services/cfhttp.service';
+import   cityfun  from 'cityfun-gl-4490';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +12,7 @@ export class MapboxmapService {
   specialStyel = null;
 
   mapboxmap = null;
-
+  firstFullLoaded = false;
   constructor(private http: HttpClient, private cfhttpService: CfhttpService) {
     this.init().then((res) => {
       this.mapboxmap.on('load', () => {});
@@ -20,6 +21,7 @@ export class MapboxmapService {
   /**
    * 底图初始化、单例创建地图、加载专题图配置文件
    */
+
   init() {
     let self = this;
     if (this.mapboxmap || this.specialStyel) {
@@ -46,7 +48,6 @@ export class MapboxmapService {
   /**
    * 获取专题图样式配置文件
    */
-  
 
   /**
    *
@@ -61,12 +62,11 @@ export class MapboxmapService {
         const tmpstyle = {
           container: 'mapboxmap',
           style: stylejson,
-          // minZoom: 14,
-          // "center": [120.715107, 31.159329],
-          // pitch: 53.99999999999998,
-          // bearing: -8.000000000000115,
         };
         self.mapboxmap = new cityfun.Map(tmpstyle);
+         self.mapboxmap.on('load', () => {
+          this.firstFullLoaded = true;
+        });
         resolve(self.mapboxmap);
       }
     });
@@ -97,8 +97,6 @@ export class MapboxmapService {
   public removeLayerByIds(layerids: Array<string>, rimg = true) {
     if (this.mapboxmap) {
       for (let id of layerids) {
-        // console.log(999, layerids);
-
         if (this.mapboxmap.getLayer(id)) {
           this.mapboxmap.removeLayer(id);
         }

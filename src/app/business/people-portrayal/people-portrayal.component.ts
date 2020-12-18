@@ -23,7 +23,7 @@ export class PeoplePortrayalComponent implements OnInit {
     this.cfhttpService.get('poulation.brief.menu').subscribe((res: any) => {
       if (res) {
         this.menuData = res.data;
-        console.log(this.menuData);
+        //console.log(this.menuData);
       }
     });
   }

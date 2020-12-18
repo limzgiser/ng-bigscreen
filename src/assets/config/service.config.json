@@ -1,26 +1,15 @@
 {
     "host": {
-        "{{loginHost}}": "http://192.168.2.41",
+        "{{api}}": "http://192.168.2.64",
         "{{loginHost2}}": "http://192.168.2.41"
     },
-    "list": [{
-            "id": "tree.config",
-            "des": "图层书配置文件",
-            "url": "./assets/config/maptree/map.tree.config.json"
-        },
+    "list": [
         {
             "id": "base.map",
             "des": "底图样式",
-            "url": "http://webres.cityfun.com.cn/csmap/csmap_blue/3857/map_blue.json"
+            "url": "http://webres.cityfun.com.cn/csmap/csmap_blue/4326/map_blue.json"
         },
         {
-            "id": "login",
-            "url": "{{loginHost}}/WJSCMAPI/csscm/v1/login"
-        },
-        {
-            "id": "login2",
-            "url": "{{loginHost2}}/assets/config/services/login.modules.json"
-        }, {
             "id": "menu.config",
             "url": "./assets/config/menu.config.json"
         },
@@ -29,13 +18,24 @@
             "url": "./assets/config/maptree/map.tree.config.json"
         },
         {
-            "id": "web.meta",
-            "url": "./assets/config/web.meta/web.meta.json"
+            "id": "poulation.brief.menu",
+            "des": "人口画像菜单",
+            "url": "./assets/config/mock.data/population-brief/menu.config.json"
         },
         {
             "id": "poulation.brief.menu",
             "des": "人口画像菜单",
             "url": "./assets/config/mock.data/population-brief/menu.config.json"
+        },
+        {
+            "id": "peop-sta-leavel-1",
+            "des": "常熟一级行政区人口统计查询",
+            "url": "{{api}}/CSSCMS/cf/service/DBService/rkdl_level_select?f=list"
+        },
+        {
+            "id": "region-sta-geojson",
+            "des": "更具xzcode获取人口统计数据",
+            "url": "{{api}}/CSSCMS/cf/service/DBService/rkdl_district_total?f=geojson"
         }
     ]
 }

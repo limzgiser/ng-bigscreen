@@ -3,6 +3,13 @@
 @import "../node_modules/@mapbox/mapbox-gl-draw/dist/mapbox-gl-draw.css";
 @import "~ng-zorro-antd/ng-zorro-antd.css";
 
+$homesite-font-url: "~/assets/fonts/";
+$fonturl: $homesite-font-url+"BebasNeueRegular.ttf";
+
+@font-face {
+  font-family: "Bebas Neue Regular";
+  src: url($fonturl) format("truetype");
+}
 // ---------------------------- 测试tip style  ----------------------------
 
   .mapboxgl-popup-content{
