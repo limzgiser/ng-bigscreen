@@ -14,8 +14,7 @@ export class MigrationComponent implements OnInit {
   ngOnInit() {
   }
   ngAfterViewInit(): void {
-
- 
+//    console.log(this.migrationEle.nativeElement)
     this.initData();
   } 
   initData(){
@@ -287,9 +286,9 @@ export class MigrationComponent implements OnInit {
     // 使用制定的配置项和数据显示图表
     mapBoxEchart.setOption(option);
     // echart图表自适应
-    window.addEventListener('resize', function () {
-      mapBoxEchart.resize();
-    });
+    // window.addEventListener('resize', function () {
+    //   mapBoxEchart.resize();
+    // });
   }
 
 }
