@@ -17,12 +17,27 @@ export class PeoplePortrayalComponent implements OnInit {
 
   constructor(private dataRequireService: DataRequireService,
     private cfhttpService: CfhttpService,
-    private router: Router) { }
+    private router: Router) {
+     router.events.subscribe((param) => {
+        if (param instanceof NavigationEnd) {
+          const urls = param.url.split('/');
+         this.activeRouteName = urls[urls.length-1];
+        }
+      });
+     }
+  activeRouteName:string = '';
   menuData=null;
   ngOnInit() {
     this.cfhttpService.get('poulation.brief.menu').subscribe((res: any) => {
       if (res) {
         this.menuData = res.data;
+        this.menuData.map(item=>{
+          if(item.id===this.activeRouteName){
+            item.active = true;
+          }else{
+            item.active= false;
+          }
+        })
         //console.log(this.menuData);
       }
     });

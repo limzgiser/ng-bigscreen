@@ -26,7 +26,8 @@ import {
    BarBacktobackComponent,
    BarVerticalComponent,
    BarHorizontalComponent,
-   EventListBarComponent
+   EventListBarComponent,
+   StasticCardSimplenessComponent
   } from './components';
 import { NzTreeModule } from 'ng-zorro-antd/tree';
 
@@ -69,7 +70,8 @@ const selfcomms = [
    BarBacktobackComponent,
    BarVerticalComponent,
    BarHorizontalComponent,
-   EventListBarComponent
+   EventListBarComponent,
+   StasticCardSimplenessComponent
   ];
 
 

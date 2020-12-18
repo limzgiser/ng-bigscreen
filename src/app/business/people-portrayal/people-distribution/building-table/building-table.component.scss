@@ -1,0 +1,61 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  background: rgba($color: #000000, $alpha: 0.5);
+  width: 730px;
+  .stastic {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    app-stastic-card-simpleness {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 170px;
+      background: #1a2129;
+    }
+  }
+  .floor-list {
+    .floor-des {
+      display: flex;
+      height: 50px;
+      color: #fff;
+      font-size: 24px;
+      justify-content: space-between;
+      display: flex;
+      height: 50px;
+      align-items: center;
+
+      padding: 0 20px;
+      .left {
+        flex: 1;
+      }
+      .right {
+        flex: 2;
+        display: flex;
+        align-items: center;
+        div {
+          display: flex;
+          flex: 1;
+          align-items: center;
+        }
+        .color {
+          width: 25px;
+          height: 25px;
+          display: flex;
+          margin-right: 5px;
+        }
+        .color1 {
+          background: #93562d;
+        }
+        .color2 {
+          background: #bdd2ce;
+        }
+        .color3 {
+          background: #94382d;
+        }
+      }
+    }
+  }
+}

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { MapboxmapService } from 'src/app/cityfun/mapbox-map/service/mapboxmap.service';
 import { CfhttpService } from 'src/app/services/cfhttp.service';
 import { bbox } from '@turf/turf';
@@ -11,8 +11,7 @@ import {
   default_fill_color,
 } from './styles/style';
 import { maxBy, minBy, cloneDeep, sortBy } from 'lodash';
-import { first, min } from 'rxjs/operators';
-import { group } from '@angular/animations';
+
 @Component({
   selector: 'app-admi-division',
   templateUrl: './admi-division.component.html',
@@ -43,26 +42,11 @@ export class AdmiDivisionComponent implements OnInit {
   };
   showList: true | false = false;
 
-  indexStatistics = [
-    {
-      label: '总人口',
-      value: 3201.31,
-      unit: '万人',
-    },
-    {
-      label: '户籍人口',
-      value: 123.81,
-      unit: '万人',
-    },
-    {
-      label: '总人口',
-      value: 100.31,
-      unit: '万人',
-    },
-  ];
+  @Input()
+  indexStatistics =[];
 
   listData_GeoJSON = null;
-
+  @Output() regionClick = new EventEmitter<any>();
   mapboxglmap = null;
   ngOnInit() {
     this.updateCrumbs('常熟市', '320581000', 0);
@@ -156,8 +140,6 @@ export class AdmiDivisionComponent implements OnInit {
    */
   bindMapEvent() {
     const self = this;
- 
-
 
     let addLevelLayer = function (e) {
       if (e.features) {
@@ -170,7 +152,7 @@ export class AdmiDivisionComponent implements OnInit {
     };
     let levelLen = 3;
     for (let i = 0; i < levelLen; i++) {
-      if (this.mapEvent[`${region_fill.id}_${i}`] ) {
+      if (this.mapEvent[`${region_fill.id}_${i}`]) {
         this.mapboxglmap.off('click', this.mapEvent[`${region_fill.id}_${i}`]);
       }
       this.mapEvent[`${region_fill.id}_${i}`] = function (e) {
@@ -353,12 +335,12 @@ export class AdmiDivisionComponent implements OnInit {
       item.groupid;
     });
     this.crumbArr = crumbsArr;
+    this.regionClick.emit( this.crumbs['level-' + gtype] );
   }
   /**
    * 面包屑点击
    */
   crumbsClick(item) {
- 
     let { geo_name, groupid, geo_code } = item;
     this.selectNode.geo_name = geo_name;
     this.getLevel1GeoJSONByCode(geo_code, groupid);

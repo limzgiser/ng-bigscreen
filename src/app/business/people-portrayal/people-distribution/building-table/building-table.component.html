@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="title">
+    <app-chart-title [chartTitle]="'楼盘表|4幢'" [unit]=""></app-chart-title>
+  </div>
+  <div class="stastic">
+    <app-stastic-card-simpleness
+      *ngFor="let item of indexStatistics"
+      [data]="item"
+    ></app-stastic-card-simpleness>
+  </div>
+  <div class="floor-list">
+    <div class="floor-des">
+      <div class="left">共十层</div>
+      <div class="right">
+        <div><span class="color color1"></span>出租房</div>
+        <div><span class="color color2"></span>空置房</div>
+        <div><span class="color color3"></span>疑似群租</div>
+      </div>
+    </div>
+  </div>
+</div>

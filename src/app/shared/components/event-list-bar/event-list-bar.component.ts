@@ -1,5 +1,5 @@
 import { Component, OnInit,OnChanges,Input } from '@angular/core';
-
+import {sortBy,forEach} from 'lodash';
 @Component({
   selector: 'app-event-list-bar',
   templateUrl: './event-list-bar.component.html',
@@ -19,13 +19,13 @@ export class EventListBarComponent implements OnInit,OnChanges {
    * 计算数字所占宽度比例
    */
   listBarFormat(data) {
-    const source = _.sortBy(data, function (o) {
+    const source = sortBy(data, function (o) {
       return -Number(o.value);
     });
     const dataArr = [];
     const self = this;
     if (source) {
-      _.forEach(source, function (i) {
+      forEach(source, function (i) {
         i.width = (Number(i.value) / Number(source[0].value)) * self.vwith;
         dataArr.push(i);
       });

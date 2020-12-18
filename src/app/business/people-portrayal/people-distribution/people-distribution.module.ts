@@ -4,11 +4,20 @@ import { PeopleDistributionComponent } from './people-distribution.component';
 import { PeopleDistributionRoutes } from './people-distribution.routing';
 import { CityfunModule } from 'src/app/cityfun/cityfun.module';
 import { AdmiDivisionComponent } from './admi-division/admi-division.component';
+import { EducationLevelComponent } from './education-level/education-level.component';
+import { SixPercentComponent } from './six-percent/six-percent.component';
+import { PeopleMigrateComponent } from './people-migrate/people-migrate.component';
+import { BuildingTableComponent } from './building-table/building-table.component';
 
 @NgModule({
-  imports: [
-    CommonModule,PeopleDistributionRoutes,CityfunModule
+  imports: [CommonModule, PeopleDistributionRoutes, CityfunModule],
+  declarations: [
+    PeopleDistributionComponent,
+    AdmiDivisionComponent,
+    EducationLevelComponent,
+    SixPercentComponent,
+    PeopleMigrateComponent,
+    BuildingTableComponent,
   ],
-  declarations: [PeopleDistributionComponent,AdmiDivisionComponent]
 })
-export class PeopleDistributionModule { }
+export class PeopleDistributionModule {}
