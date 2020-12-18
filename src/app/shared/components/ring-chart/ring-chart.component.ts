@@ -40,6 +40,7 @@ export class RingChartComponent implements OnInit {
     .color('type',ChartColors)
     chart.legend(false,{
     });
+    
     chart.annotation().html({
       html:
       `<div style="width: 171px;height: 171px;

@@ -7,6 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class BarVerticalComponent implements OnInit {
   @Input() chartData;
+  @Input() chartPadding;
   constructor() { }
 
   ngOnInit() {
@@ -14,7 +15,9 @@ export class BarVerticalComponent implements OnInit {
   configureChart(chart) {
 
     const data =this.chartData;
-
+    if(this.chartPadding){
+      chart.padding=this.chartPadding;
+    }
     chart.data(data);
     chart.scale('value', {
       nice: true,
@@ -34,7 +37,8 @@ export class BarVerticalComponent implements OnInit {
         style:{
           fill:'#ffffff',
           fontSize:16
-        }
+        },
+        autoHide:false
     }});
     chart.axis('value',{
       label:{

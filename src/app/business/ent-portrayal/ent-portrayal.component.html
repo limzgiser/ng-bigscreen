@@ -1,3 +1,2 @@
-<p>
-  ent-portrayal works!
-</p>
+<app-clildren-nav *ngIf="menuData" [data]="menuData" (routerToEmitter)='routerToEmitter($event)'></app-clildren-nav>
+<router-outlet></router-outlet>
