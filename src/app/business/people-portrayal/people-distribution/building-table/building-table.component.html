@@ -17,5 +17,35 @@
         <div><span class="color color3"></span>疑似群租</div>
       </div>
     </div>
+    <div class="list">
+      <div class="item-row" *ngFor="let item of floorData">
+        <div class="floor">{{ item.label }}</div>
+        <div class="room" *ngFor="let jtem of item.children">
+          {{ item.label }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="home-title">
+    <app-chart-title
+      [chartTitle]="'人员明细|民华苑4幢503室'"
+      [unit]=""
+    ></app-chart-title>
+  </div>
+  <div class="home-people-list">
+      <div class="header">
+        <div>姓名</div>
+        <div>性别</div>
+        <div>出生日期</div>
+        <div>户籍地</div>
+      </div>
+      <div class="list">
+        <div class="people-item" *ngFor="let item of homeInfo">
+          <div>{{item.name}}</div>
+          <div>{{item.sex}}</div>
+          <div>{{item.birthday}}</div>
+          <div>{{item.hj}}</div>
+        </div>
+      </div>
   </div>
 </div>

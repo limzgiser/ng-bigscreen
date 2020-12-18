@@ -3,11 +3,10 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-building-table',
   templateUrl: './building-table.component.html',
-  styleUrls: ['./building-table.component.scss']
+  styleUrls: ['./building-table.component.scss'],
 })
 export class BuildingTableComponent implements OnInit {
-
-  constructor() { }
+  constructor() {}
   indexStatistics = [
     {
       label: '总人口',
@@ -30,7 +29,177 @@ export class BuildingTableComponent implements OnInit {
       unit: '人',
     },
   ];
-  ngOnInit() {
-  }
 
+  floorData = [
+    {
+      label: '10层',
+      children: [
+        {
+          label: '10001',
+        },
+        {
+          label: '10001',
+        },
+        {
+          label: '10001',
+        },
+        {
+          label: '10001',
+        },
+      ],
+    },
+    {
+      label: '9层',
+      children: [
+        {
+          label: '10001',
+        },
+        {
+          label: '10001',
+        },
+        {
+          label: '10001',
+        },
+        {
+          label: '10001',
+        },
+      ],
+    },
+    {
+      label: '8层',
+      children: [
+        {
+          label: '10001',
+        },
+        {
+          label: '10001',
+        },
+        {
+          label: '10001',
+        },
+        {
+          label: '10001',
+        },
+      ],
+    },
+    {
+      label: '7层',
+      children: [
+        {
+          label: '10001',
+        },
+        {
+          label: '10001',
+        },
+        {
+          label: '10001',
+        },
+        {
+          label: '10001',
+        },
+      ],
+    },
+    {
+      label: '6层',
+      children: [
+        {
+          label: '10001',
+        },
+        {
+          label: '10001',
+        },
+        {
+          label: '10001',
+        },
+        {
+          label: '10001',
+        },
+      ],
+    },
+    {
+      label: '5层',
+      children: [
+        {
+          label: '10001',
+        },
+        {
+          label: '10001',
+        },
+        {
+          label: '10001',
+        },
+        {
+          label: '10001',
+        },
+      ],
+    },
+    {
+      label: '4层',
+      children: [
+        {
+          label: '10001',
+        },
+        {
+          label: '10001',
+        },
+        {
+          label: '10001',
+        },
+        {
+          label: '10001',
+        },
+      ],
+    },
+    {
+      label: '3层',
+      children: [
+        {
+          label: '10001',
+        },
+        {
+          label: '10001',
+        },
+        {
+          label: '10001',
+        },
+        {
+          label: '10001',
+        },
+      ],
+    },
+  ];
+  homeInfo = [
+    {
+      name: '张小妹',
+      sex: '女',
+      birthday: '1993.09.21',
+      hj: '江苏省苏州市吴中区',
+    },
+    {
+      name: '张小妹',
+      sex: '女',
+      birthday: '1993.09.21',
+      hj: '江苏省苏州市吴中区',
+    },
+    {
+      name: '张小妹',
+      sex: '女',
+      birthday: '1993.09.21',
+      hj: '江苏省苏州市吴中区',
+    },
+    {
+      name: '张小妹',
+      sex: '女',
+      birthday: '1993.09.21',
+      hj: '江苏省苏州市吴中区',
+    },
+    {
+      name: '张小妹',
+      sex: '女',
+      birthday: '1993.09.21',
+      hj: '江苏省苏州市吴中区',
+    },
+  ];
+
+  ngOnInit() {}
 }
