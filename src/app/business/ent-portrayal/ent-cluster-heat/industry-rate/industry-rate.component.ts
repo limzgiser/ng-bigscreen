@@ -11,6 +11,7 @@ export class IndustryRateComponent implements OnInit {
 
   ngOnInit() {
   }
+  mchartColor='#2A7DF5';
   tmpData= [
     { type: '服装批发', value: 38 },
     { type: '食品饮料', value: 52 },

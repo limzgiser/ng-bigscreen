@@ -11,6 +11,7 @@ export class EntNatureComponent implements OnInit {
 
   ngOnInit() {
   }
+  mchartColor="#38CED8";
   tmpData= [
     { type: '国有企业', value: 38 },
     { type: '集团所有制企业', value: 52 },

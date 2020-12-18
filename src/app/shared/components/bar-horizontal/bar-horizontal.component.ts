@@ -7,6 +7,7 @@ import { Component, OnInit,Input } from '@angular/core';
 })
 export class BarHorizontalComponent implements OnInit {
   @Input() chartData;
+  @Input() chartColor='#42B1E0';
   constructor() { }
 
   ngOnInit() {
@@ -27,7 +28,7 @@ export class BarHorizontalComponent implements OnInit {
 
     chart.interval()
     .position('type*value')
-    .color('#42B1E0')
+    .color(this.chartColor)
     .size(12);
     chart.axis('type',{
       label:{

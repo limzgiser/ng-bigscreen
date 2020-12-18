@@ -11,22 +11,30 @@ export class EntEconomicNatureComponent implements OnInit {
 
   ngOnInit() {
   }
-  data=[
+  data = [
     {
-    "type":"回族",
-    "value":5386
+      "type": "非公司企业法人",
+      "value": 14
     },
     {
-    "type":"苗族",
-    "value":4378
+      "type": "有限责任公司",
+      "value": 23
     },
     {
-    "type":"土家",
-    "value":4185
+      "type": "股份有限责任公司",
+      "value": 41
     },
     {
-    "type":"彝族",
-    "value":3035
+      "type": "个体工商户",
+      "value": 23
+    },
+    {
+      "type": "私营独资企业",
+      "value": 15
+    },
+    {
+      "type": "私营合伙企业",
+      "value": 33
     }
-    ]
+  ]
 }

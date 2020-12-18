@@ -12,6 +12,7 @@ export class EntRegisterMoneyComponent implements OnInit {
   ngOnInit() {
   }
   mchartPadding=[20,0,80,50];
+  mchartColor="#389AD8";
   tmpData= [
     { type: '0-50', value: 38 },
     { type: '50-100', value: 52 },
