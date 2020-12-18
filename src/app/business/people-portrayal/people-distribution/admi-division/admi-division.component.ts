@@ -156,10 +156,12 @@ export class AdmiDivisionComponent implements OnInit {
         this.mapboxglmap.off('click', this.mapEvent[`${region_fill.id}_${i}`]);
       }
       this.mapEvent[`${region_fill.id}_${i}`] = function (e) {
+         
         if (e.defaultPrevented) {
           return;
         }
         e.preventDefault();
+        console.log(12345)
         addLevelLayer(e);
       };
     }

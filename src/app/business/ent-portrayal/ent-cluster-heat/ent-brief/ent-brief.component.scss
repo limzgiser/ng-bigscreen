@@ -8,4 +8,62 @@
         //height: fit-content;
         //margin-top: 52px;
     }
+    .staticContianer {
+        width: 98%;
+        height: 304px;
+        //background-color: greenyellow;
+        //border: red 1px solid;
+        display: flex;
+        flex-direction: column;
+        .totalStatic {
+            width: 660px;
+            height: 85px;
+            background-image: url('~/assets/img/component-img/ent-component/longbar.png');
+            display: flex;
+            justify-content: center;
+            padding-top: 20px;
+            .staticName {
+                width: fit-content;
+                height: 100%;
+                font-size: 32px;
+                font-family: PingFangSC-Semibold, PingFang SC;
+                font-weight: 600;
+                color: #FFFFFF;
+                line-height: 45px;
+            }
+            .staticValue {
+                width: fit-content;
+                height: 100%;
+                margin-left: 20px;
+                font-size: 40px;
+                font-family: DINAlternate-Bold, DINAlternate;
+                font-weight: bold;
+                color: #EFC909;
+                line-height: 47px;
+                letter-spacing: 1px;
+            }
+            .staticUnit {
+                font-size: 20px;
+                margin-left: 5px;
+                font-family: PingFangSC-Semibold, PingFang SC;
+                font-weight: 600;
+                color: #EFC909;
+                line-height: 28px;
+                margin-top: 16px;
+            }
+        }
+        .detailStatic {
+            margin-top: -18px;
+            width: 660px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            .staticCrd {
+                margin-top: 18px;
+                width: 207px;
+                height: 96px;
+            }
+        }
+    }
 }
