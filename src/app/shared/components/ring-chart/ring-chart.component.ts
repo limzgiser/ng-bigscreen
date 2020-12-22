@@ -23,6 +23,7 @@ export class RingChartComponent implements OnInit {
   }
   configureChart(chart){
     //需要注册图形
+
     const data = this.chartData;
     chart.data(data);
     chart.coordinate('theta',{
@@ -82,9 +83,8 @@ export class RingChartComponent implements OnInit {
               margin-left:-8px">人
             </span>
             </div>
-            <div style="    margin-left: auto;
-            margin-right: auto;
-        ">
+            <div style="margin-left: auto;
+            margin-right: auto;">
             <span style='font-size:24px;
             font-family:SourceHanSansSC-Bold,SourceHanSansSC;
             font-weight:bold;
