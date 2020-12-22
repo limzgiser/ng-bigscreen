@@ -52,6 +52,13 @@ export class BarHorizontalComponent implements OnInit {
             fontSize:16
         }
     }});
+    chart.scale({
+      value:{
+        nice:true,
+        //alias影响tooltip 需传入值
+        alias:"人数"
+      }
+    })
     chart.coordinate().transpose();
     chart.render();
   }

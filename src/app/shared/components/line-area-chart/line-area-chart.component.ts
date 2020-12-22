@@ -31,7 +31,15 @@ export class LineAreaChartComponent implements OnInit {
             fill:'#ffffff',
             fontSize:16
         }
-    }});
+    },
+  });
+  chart.scale({
+    value:{
+      nice:true,
+      //alias影响tooltip 需传入值
+      alias:"人数"
+    }
+  })
     chart.padding=[20,20,80,50];
     chart.line().position('year*value').shape('smooth').color(this.chartColor);
     chart.area().position('year*value').shape('smooth').color('l(270) 0:rgba(0,0,0,0) 0.7:'+this.chartColor);
