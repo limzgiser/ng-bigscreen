@@ -1,0 +1,17 @@
+<div class="pancel">
+    <div class="titlecontianer">
+        <app-chart-title [chartTitle]="'企业总览'"></app-chart-title>
+    </div>
+    <div class="staticContianer">
+        <div class="totalStatic">
+            <div class="staticName"><span>企业总数</span></div>
+            <div class="staticValue"><span>575621</span></div>
+            <div class="staticUnit"><span>家</span></div>
+        </div>
+        <div class="detailStatic">
+            <div class="staticCrd" *ngFor="let item of indexStatistics">
+                <app-stastic-card-simpleness [data]=item></app-stastic-card-simpleness>
+            </div>
+        </div>
+    </div>
+</div>

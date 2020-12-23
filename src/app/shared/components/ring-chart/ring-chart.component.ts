@@ -23,6 +23,7 @@ export class RingChartComponent implements OnInit {
   }
   configureChart(chart){
     //需要注册图形
+
     const data = this.chartData;
     chart.data(data);
     chart.coordinate('theta',{
@@ -40,6 +41,7 @@ export class RingChartComponent implements OnInit {
     .color('type',ChartColors)
     chart.legend(false,{
     });
+    
     chart.annotation().html({
       html:
       `<div style="width: 171px;height: 171px;
@@ -60,6 +62,9 @@ export class RingChartComponent implements OnInit {
         align-items:center;
         justify-content:center;">
           <div>
+          <div style="margin-left: auto;
+          margin-right: auto;
+          width: fit-content;">
             <span style="font-size:36px;
             max-width:80px;
             font-family:DINAlternate-Bold,DINAlternate;
@@ -75,15 +80,18 @@ export class RingChartComponent implements OnInit {
               line-height:27px;
               letter-spacing:1px;
               justify-self:flex-end;
-              margin-left:-2px">人
+              margin-left:-8px">人
             </span>
-            <br>
+            </div>
+            <div style="margin-left: auto;
+            margin-right: auto;">
             <span style='font-size:24px;
             font-family:SourceHanSansSC-Bold,SourceHanSansSC;
             font-weight:bold;
             color:rgba(255,255,255,1);
-            line-height:36px;padding-left: 13px;'>${this.ringChartTitle}
+            line-height:36px;'>${this.ringChartTitle}
             </span>
+            </div>
           </div>
         </div>
       </div>`,
